@@ -39,7 +39,7 @@ Good for daily puzzles. Most can generate unlimited levels from code.
 | Game | How it plays | Build | Status |
 |---|---|---|---|
 | **2048** | Swipe to slide numbered tiles; matching tiles merge. Reach 2048 (then keep going). | 🟢 | ✅ |
-| **Sudoku** | 9×9 classic with pencil marks, mistake highlighting and Easy → Expert levels. | 🟡 | 💡 |
+| **Sudoku** | 9×9 classic with pencil marks, mistake highlighting and Easy → Expert levels. | 🟡 | ✅ |
 | **Minesweeper** | Tap to reveal, long-press to flag. Three board sizes; the first tap is always safe. (Later: a no-guess mode.) | 🟢 | ✅ |
 | **Nonograms (Picross)** | Use row and column number clues to fill in squares and reveal a pixel picture. | 🟡 | 💡 |
 | **KenKen-style Math Grid** | Fill a grid so each row and column has each number once, and cages hit their target sums or products. | 🟡 | 💡 |
@@ -148,7 +148,7 @@ Needs a small server or a peer-to-peer connection, so save for later.
 3. ~~**Minesweeper**~~ ✅: classic, simple rules.
 4. ~~**Spelling Hive**~~ ✅: reuses the dictionary again.
 5. ~~**Solitaire (Klondike)**~~ ✅: builds the shared card deck for every other card game.
-6. **Sudoku**: unlimited generated puzzles.
+6. ~~**Sudoku**~~ ✅: unlimited generated puzzles.
 7. **Connect Four**: first game with a computer opponent.
 8. **Snake**: first arcade game; sets up the canvas game loop.
 

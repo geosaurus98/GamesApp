@@ -38,7 +38,7 @@
       <span class="best" id="best-hive"></span>
     </a>
     <a class="card" href="games/2048/">
-      <span class="emoji">🔢</span>
+      <span class="emoji">🧮</span>
       <span class="name">2048</span>
       <span class="desc">Swipe and merge numbers to reach 2048.</span>
       <span class="best" id="best-2048"></span>
@@ -54,6 +54,12 @@
       <span class="name">Solitaire</span>
       <span class="desc">Classic Klondike. Draw 1 or Draw 3.</span>
       <span class="best" id="best-solitaire"></span>
+    </a>
+    <a class="card" href="games/sudoku/">
+      <span class="emoji">🔢</span>
+      <span class="name">Sudoku</span>
+      <span class="desc">Fill the grid with 1 to 9. Four levels, endless puzzles.</span>
+      <span class="best" id="best-sudoku"></span>
     </a>
     <div class="card soon" aria-disabled="true">
       <span class="emoji">🎲</span>
@@ -77,6 +83,8 @@
     show('best-minesweeper', mines && `Best: ${mines}`);
     const sol = read('solitaire.record.v1', null);
     show('best-solitaire', sol?.won && `Won ${sol.won} of ${sol.played}`);
+    const sudoku = times(read('sudoku.best.v1', {}), [['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard'], ['expert', 'Expert']]);
+    show('best-sudoku', sudoku && `Best: ${sudoku}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);
