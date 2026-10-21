@@ -13,6 +13,12 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
   bunch runs out. Quick (60 tiles) and Classic (144 tiles) modes, live
   highlighting of invalid words, best times, and auto-saved progress.
   Words are checked against the public-domain ENABLE word list.
+- **Word of the Day**: guess the five-letter word in six tries. A new daily
+  word for everyone (about 900 days of words) plus unlimited practice,
+  streaks, guess stats and an emoji result you can share.
+- **Spelling Hive**: make words from seven letters, always using the centre
+  one. A new daily hive plus practice puzzles, ranks from Beginner to
+  Queen Bee, pangrams, and ★ bonus words for real words off the list.
 - **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
   score, and arrow keys on a computer.
 - **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a
@@ -51,10 +57,24 @@ games/bananagrams/
   app.js                   Touch UI: drag & drop, zoom, timer, saving
   index.html, style.css
   words.txt                Dictionary
-games/2048/, games/minesweeper/
+games/2048/, games/minesweeper/, games/word-of-the-day/, games/spelling-hive/
                            Same layout: logic.js (rules) + app.js (UI)
 shared/                    Styles and helpers shared by game pages
+tools/build-word-data.mjs  Regenerates the word game puzzle files
+tools/data/                Common-word lists from SCOWL (see SCOWL-LICENSE.txt)
 tests/                     node:test tests for game logic
+```
+
+## Word data
+
+Word of the Day answers and Spelling Hive puzzles are generated from the
+ENABLE dictionary plus common-word lists from
+[SCOWL](http://wordlist.aspell.net/) (`tools/data/`, licence in
+`SCOWL-LICENSE.txt`). Words in `tools/data/blocklist.txt` are never used as
+answers. To regenerate after changing the lists:
+
+```sh
+node tools/build-word-data.mjs
 ```
 
 ## Adding a game
