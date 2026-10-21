@@ -21,8 +21,8 @@ tile styling.
 | Game | How it plays | Build | Status |
 |---|---|---|---|
 | **Bananagrams** | Solo race to use every tile in a connected crossword grid. Peel, dump, Bananas! | 🟡 | ✅ |
-| **Word of the Day** | Guess a hidden 5-letter word in 6 tries; tiles turn green / yellow / grey. Same word for everyone each day, plus unlimited practice mode. | 🟢 | 💡 |
-| **Spelling Hive** | Seven letters in a honeycomb with one required centre letter. Find as many words as you can; pangrams (using all 7) score big. Ranks from "Beginner" to "Genius". | 🟢 | 💡 |
+| **Word of the Day** | Guess a hidden 5-letter word in 6 tries; tiles turn green / yellow / grey. Same word for everyone each day, plus unlimited practice mode. | 🟢 | ✅ |
+| **Spelling Hive** | Seven letters in a honeycomb with one required centre letter. Find as many words as you can; pangrams (using all 7) score big. Ranks from "Beginner" to "Genius". | 🟢 | ✅ |
 | **Boggle-style Grid** | 4×4 (or 5×5) grid of letter dice. Swipe through touching letters to make words before the 3-minute timer runs out. Show missed words at the end. | 🟡 | 💡 |
 | **Anagram Sprint** | Six or seven scrambled letters. Make every word you can; finding the full-length word moves you to the next round. | 🟢 | 💡 |
 | **Word Ladder** | Turn COLD into WARM one letter at a time, every step a real word. Daily puzzle with a par score. | 🟢 | 💡 |
@@ -57,7 +57,7 @@ of these.
 
 | Game | How it plays | Build | Status |
 |---|---|---|---|
-| **Solitaire (Klondike)** | The classic. Draw 1 or draw 3, tap-to-auto-move, undo. | 🟡 | 💡 |
+| **Solitaire (Klondike)** | The classic. Draw 1 or draw 3, tap-to-auto-move, undo. | 🟡 | ✅ |
 | **Spider Solitaire** | 1, 2 or 4 suits. Build full suit runs from King to Ace. | 🟡 | 💡 |
 | **FreeCell** | Almost every deal is solvable; numbered deals so you can retry one. | 🟡 | 💡 |
 | **Pyramid** | Remove pairs that add up to 13. | 🟢 | 💡 |
@@ -143,11 +143,11 @@ Needs a small server or a peer-to-peer connection, so save for later.
 
 ## Suggested build order
 
-1. **Word of the Day**: easy, reuses the dictionary, great daily habit.
+1. ~~**Word of the Day**~~ ✅: easy, reuses the dictionary, great daily habit.
 2. ~~**2048**~~ ✅: quick win and very satisfying on a phone.
 3. ~~**Minesweeper**~~ ✅: classic, simple rules.
-4. **Spelling Hive**: reuses the dictionary again.
-5. **Solitaire (Klondike)**: builds the shared card deck for every other card game.
+4. ~~**Spelling Hive**~~ ✅: reuses the dictionary again.
+5. ~~**Solitaire (Klondike)**~~ ✅: builds the shared card deck for every other card game.
 6. **Sudoku**: unlimited generated puzzles.
 7. **Connect Four**: first game with a computer opponent.
 8. **Snake**: first arcade game; sets up the canvas game loop.

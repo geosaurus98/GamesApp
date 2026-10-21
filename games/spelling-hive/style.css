@@ -1,0 +1,160 @@
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: 8px auto 0;
+  padding: 4px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--text) 10%, transparent);
+}
+.tabs button {
+  min-width: 110px;
+  min-height: 36px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  font-weight: 800;
+}
+.tabs button.on { background: var(--accent); color: #2b2418; }
+
+.progress { padding: 10px 16px 0; }
+.rank-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 18px;
+}
+.score {
+  min-width: 34px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #2b2418;
+  text-align: center;
+  font-weight: 800;
+}
+.track {
+  height: 6px;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--text) 15%, transparent);
+  overflow: hidden;
+}
+.track-fill {
+  height: 100%;
+  width: 0;
+  background: var(--accent-strong);
+  transition: width 0.4s ease;
+}
+.next-rank { margin-top: 4px; font-size: 13px; color: var(--muted); min-height: 1.2em; }
+
+.found-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 12px 0;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  border-radius: 10px;
+  background: var(--surface);
+  text-align: left;
+  font-size: 15px;
+}
+.found-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+.found-list {
+  margin: 0 12px;
+  padding: 10px 14px;
+  max-height: 35dvh;
+  overflow-y: auto;
+  columns: 3;
+  column-gap: 12px;
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  background: var(--surface);
+  text-transform: capitalize;
+  font-size: 15px;
+}
+.found-list div { padding: 3px 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent); break-inside: avoid; }
+.found-list .pangram { font-weight: 800; }
+.found-list .bonus { color: var(--muted); }
+
+.play {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 8px 12px 14px;
+}
+
+.entry {
+  min-height: 40px;
+  font-size: 30px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+}
+.entry::after {
+  content: "";
+  width: 2px;
+  height: 32px;
+  margin-left: 2px;
+  background: var(--accent-strong);
+  animation: blink 1s steps(1) infinite;
+}
+.entry .c { color: var(--accent-strong); }
+.entry .bad { color: color-mix(in srgb, var(--text) 30%, transparent); }
+.entry.shake { animation: shake 0.4s; }
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes shake {
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.hive {
+  --hex: min(92px, 25vw, 12dvh);
+  position: relative;
+  width: calc(var(--hex) * 2.75);
+  height: calc(var(--hex) * 2.7);
+}
+.hex {
+  position: absolute;
+  left: calc(50% + var(--dx) * var(--hex) - var(--hex) / 2);
+  top: calc(50% + var(--dy) * var(--hex) - var(--hex) * 0.433);
+  width: var(--hex);
+  height: calc(var(--hex) * 0.866);
+  border: 0;
+  padding: 0;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  background: color-mix(in srgb, var(--text) 12%, var(--bg));
+  font-size: calc(var(--hex) * 0.34);
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: transform 0.08s;
+}
+.hex.center { background: var(--accent); color: #2b2418; }
+.hex:active, .hex.tap { transform: scale(0.9); }
+.hive.shuffling .hex { animation: fade 0.3s; }
+@keyframes fade { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+
+.hive-actions { display: flex; gap: 12px; align-items: center; }
+.hive-actions .btn { min-width: 96px; border-radius: 999px; }
+.hive-actions .btn.round { min-width: 48px; width: 48px; height: 48px; padding: 0; font-size: 22px; }
+
+.muted { color: var(--muted); }
+.answer-list {
+  columns: 2;
+  column-gap: 16px;
+  max-height: 50dvh;
+  overflow-y: auto;
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+.answer-list div { padding: 2px 0; color: var(--muted); }
+.answer-list .missed { color: var(--text); font-weight: 800; }

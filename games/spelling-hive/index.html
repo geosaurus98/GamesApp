@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Spelling Hive</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <h1>Spelling Hive</h1>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button id="tab-daily" role="tab" class="on">Daily</button>
+    <button id="tab-practice" role="tab">Practice</button>
+  </div>
+
+  <section class="progress" aria-live="polite">
+    <div class="rank-line">
+      <b id="rank">Beginner</b>
+      <span id="score" class="score">0</span>
+    </div>
+    <div class="track"><div id="track-fill" class="track-fill"></div></div>
+    <div id="next-rank" class="next-rank"></div>
+  </section>
+
+  <button id="found-toggle" class="found-toggle" aria-expanded="false">
+    <span id="found-summary">You haven't found any words yet</span>
+    <span class="chev">▾</span>
+  </button>
+  <div id="found-list" class="found-list" hidden></div>
+
+  <main class="play">
+    <div id="entry" class="entry" aria-label="Your word"></div>
+    <div id="hive" class="hive" aria-label="Letters"></div>
+    <div class="hive-actions">
+      <button id="delete-btn" class="btn">Delete</button>
+      <button id="shuffle-btn" class="btn round" aria-label="Shuffle letters">⟳</button>
+      <button id="enter-btn" class="btn primary">Enter</button>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Spelling Hive</h2>
+    <button class="btn primary wide" id="new-practice">New practice puzzle</button>
+    <button class="btn wide" id="reveal-btn">Show all answers</button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Make words with the letters in the hive. Every word must use the <b>centre letter</b>.</li>
+        <li>Words need at least 4 letters. Letters can be used more than once.</li>
+        <li>4-letter words score 1 point; longer words score 1 point per letter.</li>
+        <li>A <b>pangram</b> uses all seven letters and scores 7 extra points.</li>
+        <li>Real words that aren't on the puzzle's list still count as ★ bonus words.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Ranks</summary>
+      <dl id="ranks" class="stats-list"></dl>
+    </details>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <dialog id="answers">
+    <h2>Answers</h2>
+    <p class="muted">Words you missed are shown in bold.</p>
+    <div id="answer-list" class="answer-list"></div>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
