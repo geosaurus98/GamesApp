@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <h1>Minesweeper</h1>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <div class="hud">
+    <span id="mines-left" title="Mines left to flag">💣 10</span>
+    <button id="face" class="face" aria-label="New game">🙂</button>
+    <span id="timer" title="Time">⏱ 0:00</span>
+  </div>
+
+  <main id="wrap" class="wrap">
+    <div id="board" class="board" role="grid" aria-label="Minefield"></div>
+  </main>
+
+  <footer class="mode-bar">
+    <div class="mode" role="radiogroup" aria-label="Tap action">
+      <button id="mode-dig" class="on" role="radio" aria-checked="true">⛏️ Dig</button>
+      <button id="mode-flag" role="radio" aria-checked="false">🚩 Flag</button>
+    </div>
+    <p class="hint">Long-press a square to flag it</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Minesweeper</h2>
+    <button class="btn primary wide" data-level="easy">Easy <small>9 × 9 · 10 mines</small></button>
+    <button class="btn primary wide" data-level="medium">Medium <small>10 × 16 · 25 mines</small></button>
+    <button class="btn primary wide" data-level="hard">Hard <small>12 × 20 · 45 mines</small></button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Clear every square that doesn't hide a mine.</li>
+        <li><b>Tap</b> to dig. Your first tap is always safe.</li>
+        <li>A number tells you how many mines touch that square (including diagonally).</li>
+        <li><b>Long-press</b> (or switch to 🚩 Flag mode) to mark a square you think is a mine.</li>
+        <li>Tap a number that already has the right number of flags around it to dig all its other neighbours at once.</li>
+      </ul>
+    </details>
+    <dl id="bests" class="stats-list bests"></dl>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <dialog id="result">
+    <div id="result-banner" class="banner"></div>
+    <dl id="result-stats" class="stats-list"></dl>
+    <button class="btn primary wide" id="again-btn">Play again</button>
+    <button class="btn wide" id="level-btn">Change level</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
