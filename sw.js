@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -41,6 +41,11 @@ const ASSETS = [
   './games/spelling-hive/app.js',
   './games/spelling-hive/logic.js',
   './games/spelling-hive/puzzles.json',
+  './games/solitaire/',
+  './games/solitaire/index.html',
+  './games/solitaire/style.css',
+  './games/solitaire/app.js',
+  './games/solitaire/logic.js',
 ];
 
 self.addEventListener('install', (event) => {

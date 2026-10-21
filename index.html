@@ -49,6 +49,12 @@
       <span class="desc">Clear the field without setting off a mine.</span>
       <span class="best" id="best-minesweeper"></span>
     </a>
+    <a class="card" href="games/solitaire/">
+      <span class="emoji">🃏</span>
+      <span class="name">Solitaire</span>
+      <span class="desc">Classic Klondike. Draw 1 or Draw 3.</span>
+      <span class="best" id="best-solitaire"></span>
+    </a>
     <div class="card soon" aria-disabled="true">
       <span class="emoji">🎲</span>
       <span class="name">More soon</span>
@@ -69,6 +75,8 @@
     show('best-2048', score2048 && `Best: ${score2048.toLocaleString()}`);
     const mines = times(read('minesweeper.best.v1', {}), [['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard']]);
     show('best-minesweeper', mines && `Best: ${mines}`);
+    const sol = read('solitaire.record.v1', null);
+    show('best-solitaire', sol?.won && `Won ${sol.won} of ${sol.played}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);
