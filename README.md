@@ -19,6 +19,9 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Spelling Hive**: make words from seven letters, always using the centre
   one. A new daily hive plus practice puzzles, ranks from Beginner to
   Queen Bee, pangrams, and ★ bonus words for real words off the list.
+- **Solitaire** (Klondike): tap a card to send it to the best spot or drag
+  whole runs, Draw 1 or Draw 3, hints, unlimited undo, restart the same
+  deal, one-tap auto-finish, and win records.
 - **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
   score, and arrow keys on a computer.
 - **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a
@@ -57,7 +60,7 @@ games/bananagrams/
   app.js                   Touch UI: drag & drop, zoom, timer, saving
   index.html, style.css
   words.txt                Dictionary
-games/2048/, games/minesweeper/, games/word-of-the-day/, games/spelling-hive/
+games/<each game>/
                            Same layout: logic.js (rules) + app.js (UI)
 shared/                    Styles and helpers shared by game pages
 tools/build-word-data.mjs  Regenerates the word game puzzle files

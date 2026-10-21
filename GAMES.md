@@ -57,7 +57,7 @@ of these.
 
 | Game | How it plays | Build | Status |
 |---|---|---|---|
-| **Solitaire (Klondike)** | The classic. Draw 1 or draw 3, tap-to-auto-move, undo. | 🟡 | 💡 |
+| **Solitaire (Klondike)** | The classic. Draw 1 or draw 3, tap-to-auto-move, undo. | 🟡 | ✅ |
 | **Spider Solitaire** | 1, 2 or 4 suits. Build full suit runs from King to Ace. | 🟡 | 💡 |
 | **FreeCell** | Almost every deal is solvable; numbered deals so you can retry one. | 🟡 | 💡 |
 | **Pyramid** | Remove pairs that add up to 13. | 🟢 | 💡 |
@@ -147,7 +147,7 @@ Needs a small server or a peer-to-peer connection, so save for later.
 2. ~~**2048**~~ ✅: quick win and very satisfying on a phone.
 3. ~~**Minesweeper**~~ ✅: classic, simple rules.
 4. ~~**Spelling Hive**~~ ✅: reuses the dictionary again.
-5. **Solitaire (Klondike)**: builds the shared card deck for every other card game.
+5. ~~**Solitaire (Klondike)**~~ ✅: builds the shared card deck for every other card game.
 6. **Sudoku**: unlimited generated puzzles.
 7. **Connect Four**: first game with a computer opponent.
 8. **Snake**: first arcade game; sets up the canvas game loop.
