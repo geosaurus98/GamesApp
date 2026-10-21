@@ -6,6 +6,8 @@ build step needed: it's plain HTML, CSS and JavaScript.
 
 ## Games
 
+See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
+
 - **Bananagrams** (solo): build a connected crossword grid with every tile,
   peel to draw more, dump tiles you can't use, and call Bananas! when the
   bunch runs out. Quick (60 tiles) and Classic (144 tiles) modes, live
