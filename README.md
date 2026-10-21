@@ -22,6 +22,10 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Solitaire** (Klondike): tap a card to send it to the best spot or drag
   whole runs, Draw 1 or Draw 3, hints, unlimited undo, restart the same
   deal, one-tap auto-finish, and win records.
+- **Sudoku**: endless generated puzzles with exactly one solution, in
+  Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
+  for the selected row, column and number, mistake checking you can turn
+  off, hints, undo and best times.
 - **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
   score, and arrow keys on a computer.
 - **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a
