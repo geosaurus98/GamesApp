@@ -25,6 +25,18 @@
       <span class="desc">Race to build a crossword with every tile.</span>
       <span class="best" id="best-bananagrams"></span>
     </a>
+    <a class="card" href="games/word-of-the-day/">
+      <span class="emoji">🟩</span>
+      <span class="name">Word of the Day</span>
+      <span class="desc">Guess the hidden five-letter word in six tries.</span>
+      <span class="best" id="best-wotd"></span>
+    </a>
+    <a class="card" href="games/spelling-hive/">
+      <span class="emoji">🐝</span>
+      <span class="name">Spelling Hive</span>
+      <span class="desc">Make words from seven letters. Always use the middle one.</span>
+      <span class="best" id="best-hive"></span>
+    </a>
     <a class="card" href="games/2048/">
       <span class="emoji">🔢</span>
       <span class="name">2048</span>
@@ -36,6 +48,12 @@
       <span class="name">Minesweeper</span>
       <span class="desc">Clear the field without setting off a mine.</span>
       <span class="best" id="best-minesweeper"></span>
+    </a>
+    <a class="card" href="games/solitaire/">
+      <span class="emoji">🃏</span>
+      <span class="name">Solitaire</span>
+      <span class="desc">Classic Klondike. Draw 1 or Draw 3.</span>
+      <span class="best" id="best-solitaire"></span>
     </a>
     <div class="card soon" aria-disabled="true">
       <span class="emoji">🎲</span>
@@ -57,6 +75,19 @@
     show('best-2048', score2048 && `Best: ${score2048.toLocaleString()}`);
     const mines = times(read('minesweeper.best.v1', {}), [['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard']]);
     show('best-minesweeper', mines && `Best: ${mines}`);
+    const sol = read('solitaire.record.v1', null);
+    show('best-solitaire', sol?.won && `Won ${sol.won} of ${sol.played}`);
+
+    const now = new Date();
+    const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);
+    const wotd = read('wotd.daily.v1', null);
+    const wotdStats = read('wotd.stats.v1', null);
+    const wotdToday = wotd?.day === today && wotd.status !== 'playing' ? (wotd.status === 'won' ? 'Today ✓' : 'Today ✗') : 'Today: not played';
+    show('best-wotd', wotdStats ? `${wotdToday} · Streak ${wotdStats.streak}` : '');
+    const hive = read('hive.daily.v1', null);
+    if (hive?.day === today && hive.found.length) {
+      show('best-hive', `Today: ${hive.found.length + hive.bonus.length} words, ${hive.score} pts`);
+    }
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
   </script>
 </body>

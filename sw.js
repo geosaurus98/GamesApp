@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v2';
+const VERSION = 'v4';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -28,6 +28,24 @@ const ASSETS = [
   './games/minesweeper/style.css',
   './games/minesweeper/app.js',
   './games/minesweeper/logic.js',
+  './games/word-of-the-day/',
+  './games/word-of-the-day/index.html',
+  './games/word-of-the-day/style.css',
+  './games/word-of-the-day/app.js',
+  './games/word-of-the-day/logic.js',
+  './games/word-of-the-day/answers.json',
+  './games/word-of-the-day/allowed.txt',
+  './games/spelling-hive/',
+  './games/spelling-hive/index.html',
+  './games/spelling-hive/style.css',
+  './games/spelling-hive/app.js',
+  './games/spelling-hive/logic.js',
+  './games/spelling-hive/puzzles.json',
+  './games/solitaire/',
+  './games/solitaire/index.html',
+  './games/solitaire/style.css',
+  './games/solitaire/app.js',
+  './games/solitaire/logic.js',
 ];
 
 self.addEventListener('install', (event) => {

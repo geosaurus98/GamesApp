@@ -53,3 +53,24 @@ export function fillStats(dl, rows) {
 export function registerServiceWorker(path = '../../sw.js') {
   if ('serviceWorker' in navigator) navigator.serviceWorker.register(path).catch(() => {});
 }
+
+// Whole days since 1 Jan 2026 in the player's time zone; picks daily puzzles.
+export function dayNumber(date = new Date()) {
+  const start = Date.UTC(2026, 0, 1);
+  const today = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+  return Math.floor((today - start) / 86400000);
+}
+
+// Share text with the system share sheet, falling back to the clipboard.
+export async function shareText(text) {
+  try {
+    if (navigator.share) {
+      await navigator.share({ text });
+      return 'shared';
+    }
+    await navigator.clipboard.writeText(text);
+    return 'copied';
+  } catch {
+    return 'failed';
+  }
+}
