@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -16,6 +16,18 @@ const ASSETS = [
   './games/bananagrams/app.js',
   './games/bananagrams/logic.js',
   './games/bananagrams/words.txt',
+  './shared/game.css',
+  './shared/util.js',
+  './games/2048/',
+  './games/2048/index.html',
+  './games/2048/style.css',
+  './games/2048/app.js',
+  './games/2048/logic.js',
+  './games/minesweeper/',
+  './games/minesweeper/index.html',
+  './games/minesweeper/style.css',
+  './games/minesweeper/app.js',
+  './games/minesweeper/logic.js',
 ];
 
 self.addEventListener('install', (event) => {

@@ -13,6 +13,11 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
   bunch runs out. Quick (60 tiles) and Classic (144 tiles) modes, live
   highlighting of invalid words, best times, and auto-saved progress.
   Words are checked against the public-domain ENABLE word list.
+- **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
+  score, and arrow keys on a computer.
+- **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a
+  number to clear around it. Easy, Medium and Hard boards sized for a phone
+  held upright; the first tap is always safe. Best times per level.
 
 ## Put it on your phone
 
@@ -46,10 +51,15 @@ games/bananagrams/
   app.js                   Touch UI: drag & drop, zoom, timer, saving
   index.html, style.css
   words.txt                Dictionary
+games/2048/, games/minesweeper/
+                           Same layout: logic.js (rules) + app.js (UI)
+shared/                    Styles and helpers shared by game pages
 tests/                     node:test tests for game logic
 ```
 
 ## Adding a game
 
-Create `games/<name>/` with its own `index.html`, add a card for it in the
-root `index.html`, and list its files in `sw.js` so it works offline.
+Create `games/<name>/` with its own `index.html` (link `shared/game.css` and
+import helpers from `shared/util.js` for the common look), add a card for it
+in the root `index.html`, list its files in `sw.js` and bump `VERSION` so it
+works offline. Mark it ✅ in [GAMES.md](GAMES.md).

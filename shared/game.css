@@ -1,0 +1,147 @@
+/* Shared look for game pages: colours, top bar, buttons, dialogs, toast. */
+:root {
+  --bg: #fdf6e3;
+  --surface: #ffffff;
+  --text: #2b2418;
+  --muted: #7a6d57;
+  --accent: #f5c518;
+  --accent-strong: #e0a800;
+  --bad: #e5484d;
+  --good: #1a7f37;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1d1a15;
+    --surface: #2a261f;
+    --text: #f3ead8;
+    --muted: #b3a68c;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+button { font: inherit; color: inherit; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: var(--accent);
+  color: #2b2418;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+}
+.icon-btn:active { background: rgba(0, 0, 0, 0.1); }
+
+.btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--text) 10%, transparent);
+  color: inherit;
+  font-weight: 700;
+  font-size: 16px;
+}
+.btn:active { filter: brightness(0.9); transform: translateY(1px); }
+.btn.primary { background: var(--accent); color: #2b2418; }
+.btn:disabled { opacity: 0.45; }
+.btn.wide { width: 100%; margin-top: 10px; }
+.btn small { display: block; font-weight: 500; opacity: 0.75; font-size: 13px; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  top: calc(64px + env(safe-area-inset-top));
+  transform: translate(-50%, -20px);
+  max-width: calc(100% - 32px);
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #2b2418;
+  color: #fff;
+  font-size: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 60;
+  text-align: center;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+dialog {
+  width: min(420px, calc(100% - 32px));
+  border: 0;
+  border-radius: 18px;
+  padding: 20px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+dialog h2 { margin: 0 0 6px; }
+dialog ul { padding-left: 20px; line-height: 1.45; }
+dialog li { margin-bottom: 6px; }
+details { margin-top: 14px; }
+summary { font-weight: 700; cursor: pointer; padding: 6px 0; }
+
+.banner {
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  margin: 4px 0 12px;
+}
+
+.stats-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  margin: 0 0 8px;
+}
+.stats-list dt { color: var(--muted); }
+.stats-list dd { margin: 0; font-weight: 700; text-align: right; }
