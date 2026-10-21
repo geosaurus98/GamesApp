@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Bananagrams</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <div class="stats">
+      <span id="timer" aria-label="Time">0:00</span>
+      <span id="bunch-count" title="Tiles left in the bunch">🍌 0</span>
+    </div>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <div class="board-wrap">
+    <main id="board-scroll" class="board-scroll">
+      <div id="board" class="board"></div>
+    </main>
+    <div id="status" class="status" aria-live="polite"></div>
+    <div class="zoom">
+      <button id="zoom-in" aria-label="Zoom in">+</button>
+      <button id="zoom-out" aria-label="Zoom out">&minus;</button>
+      <button id="center-btn" aria-label="Center board">&#9678;</button>
+    </div>
+  </div>
+
+  <footer class="tray">
+    <div id="rack" class="rack" aria-label="Your tiles"></div>
+    <div class="actions">
+      <button id="dump-btn" class="btn">Dump</button>
+      <button id="shuffle-btn" class="btn">Shuffle</button>
+      <button id="recall-btn" class="btn">Recall</button>
+      <button id="peel-btn" class="btn primary">Peel!</button>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Bananagrams</h2>
+    <div class="menu-section">
+      <button class="btn primary wide" data-new="quick">New quick game <small>60 tiles</small></button>
+      <button class="btn primary wide" data-new="classic">New classic game <small>144 tiles</small></button>
+    </div>
+    <label class="toggle">
+      <input type="checkbox" id="hints-toggle" checked>
+      Highlight words that aren't valid
+    </label>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Build a crossword grid using every tile in your rack. Words read left&#8209;to&#8209;right or top&#8209;to&#8209;bottom and must all connect.</li>
+        <li><b>Drag</b> tiles onto the board, or <b>tap</b> a tile then tap a square. Drag a board tile back to the rack to take it back.</li>
+        <li>When your rack is empty and every word is valid, hit <b>Peel!</b> to draw one more tile.</li>
+        <li>Stuck on a letter? Drag it onto <b>Dump</b> (or select it and tap Dump) to swap it for three new tiles.</li>
+        <li>When the bunch is empty and your grid is complete, call <b>Bananas!</b> to win.</li>
+        <li>Pinch or use + / &minus; to zoom. Drag empty space to move around.</li>
+      </ul>
+    </details>
+    <button class="btn wide" id="menu-close">Close</button>
+  </dialog>
+
+  <dialog id="win">
+    <div class="win-banner">🍌 Bananas! 🍌</div>
+    <dl id="win-stats" class="win-stats"></dl>
+    <button class="btn primary wide" id="win-again">Play again</button>
+    <a class="btn wide" href="../../">Back to games</a>
+  </dialog>
+
+  <div id="loading" class="loading">Loading dictionary…</div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
