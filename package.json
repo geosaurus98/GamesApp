@@ -1,0 +1,9 @@
+{
+  "name": "gamesapp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

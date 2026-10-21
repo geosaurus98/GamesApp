@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Games">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <title>Games</title>
+  <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+  <header>
+    <h1>Games</h1>
+    <p>Pick something to play.</p>
+  </header>
+  <main class="grid">
+    <a class="card" href="games/bananagrams/">
+      <span class="emoji">🍌</span>
+      <span class="name">Bananagrams</span>
+      <span class="desc">Race to build a crossword with every tile.</span>
+      <span class="best" id="best-bananagrams"></span>
+    </a>
+    <div class="card soon" aria-disabled="true">
+      <span class="emoji">🎲</span>
+      <span class="name">More soon</span>
+      <span class="desc">New games will show up here.</span>
+    </div>
+  </main>
+  <script>
+    try {
+      const best = JSON.parse(localStorage.getItem('bananagrams.best.v1') || '{}');
+      const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+      const parts = [['quick', 'Quick'], ['classic', 'Classic']].filter(([k]) => best[k] != null).map(([k, l]) => `${l} ${fmt(best[k])}`);
+      if (parts.length) document.getElementById('best-bananagrams').textContent = `Best: ${parts.join(' · ')}`;
+    } catch {}
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  </script>
+</body>
+</html>
