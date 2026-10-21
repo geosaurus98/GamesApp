@@ -1,0 +1,167 @@
+:root {
+  --line: #344054;
+  --thin: #c4cad4;
+  --cell-bg: #ffffff;
+  --given: #1d2939;
+  --user: #2f6fed;
+  --peer: #e8eef9;
+  --same: #c7d7f5;
+  --selected: #a9c4f5;
+  --wrong-bg: #fde2e2;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --line: #98a2b3;
+    --thin: #3d4450;
+    --cell-bg: #1f232a;
+    --given: #e6e9ef;
+    --user: #7aa7ff;
+    --peer: #262d39;
+    --same: #2f3e5c;
+    --selected: #3b5486;
+    --wrong-bg: #4a2427;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px 4px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+#level { color: var(--text); }
+
+.wrap {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 4px 8px;
+}
+
+.grid {
+  --size: min(calc(100vw - 16px), calc(100dvh - 280px), 520px);
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--cell-bg);
+}
+
+.cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--thin);
+  border-bottom: 1px solid var(--thin);
+  font-size: calc(var(--size) / 9 * 0.6);
+  font-weight: 600;
+  color: var(--user);
+  cursor: pointer;
+}
+.cell:nth-child(9n) { border-right: 0; }
+.cell:nth-child(n+73) { border-bottom: 0; }
+.cell.br { border-right: 2px solid var(--line); }
+.cell.bb { border-bottom: 2px solid var(--line); }
+.cell.given { color: var(--given); font-weight: 800; }
+.cell.peer { background: var(--peer); }
+.cell.same { background: var(--same); }
+.cell.selected { background: var(--selected); }
+.cell.wrong { color: var(--bad); background: var(--wrong-bg); }
+.cell.selected.wrong { background: var(--selected); }
+.cell.pop { animation: pop 0.2s ease-out; }
+.cell.flash { animation: flash 0.6s ease-out; }
+
+@keyframes pop { 50% { transform: scale(1.2); } }
+@keyframes flash { 30% { background: var(--accent); } }
+
+.notes {
+  position: absolute;
+  inset: 1px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  font-size: calc(var(--size) / 9 * 0.26);
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1;
+}
+.notes span { display: grid; place-items: center; }
+.notes span.hl { color: var(--user); font-weight: 900; }
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 8px 10px 4px;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+}
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-height: 52px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.tool span { font-size: 22px; line-height: 1; color: var(--text); }
+.tool b { font-size: 10px; padding: 1px 5px; border-radius: 6px; background: color-mix(in srgb, var(--text) 15%, transparent); }
+.tool[aria-pressed="true"] b { background: var(--accent); color: #2b2418; }
+.tool:active { background: color-mix(in srgb, var(--text) 8%, transparent); }
+.tool:disabled { opacity: 0.4; }
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 4px;
+  padding: 4px 8px 12px;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+}
+.num {
+  position: relative;
+  height: 60px;
+  border: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--user);
+  padding: 0;
+}
+.num small {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.num:active { background: var(--same); }
+.num.done { opacity: 0.25; }
+.pad.notes-on .num { color: var(--muted); }
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+.toggle input { width: 22px; height: 22px; accent-color: var(--accent-strong); }
+.bests { margin-top: 14px; }
+.bests:empty { display: none; }
