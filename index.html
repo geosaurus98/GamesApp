@@ -25,6 +25,18 @@
       <span class="desc">Race to build a crossword with every tile.</span>
       <span class="best" id="best-bananagrams"></span>
     </a>
+    <a class="card" href="games/2048/">
+      <span class="emoji">🔢</span>
+      <span class="name">2048</span>
+      <span class="desc">Swipe and merge numbers to reach 2048.</span>
+      <span class="best" id="best-2048"></span>
+    </a>
+    <a class="card" href="games/minesweeper/">
+      <span class="emoji">💣</span>
+      <span class="name">Minesweeper</span>
+      <span class="desc">Clear the field without setting off a mine.</span>
+      <span class="best" id="best-minesweeper"></span>
+    </a>
     <div class="card soon" aria-disabled="true">
       <span class="emoji">🎲</span>
       <span class="name">More soon</span>
@@ -32,12 +44,19 @@
     </div>
   </main>
   <script>
-    try {
-      const best = JSON.parse(localStorage.getItem('bananagrams.best.v1') || '{}');
-      const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
-      const parts = [['quick', 'Quick'], ['classic', 'Classic']].filter(([k]) => best[k] != null).map(([k, l]) => `${l} ${fmt(best[k])}`);
-      if (parts.length) document.getElementById('best-bananagrams').textContent = `Best: ${parts.join(' · ')}`;
-    } catch {}
+    const read = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
+    };
+    const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+    const show = (id, text) => { if (text) document.getElementById(id).textContent = text; };
+    const times = (best, levels) => levels.filter(([k]) => best[k] != null).map(([k, l]) => `${l} ${fmt(best[k])}`).join(' · ');
+
+    const bananas = times(read('bananagrams.best.v1', {}), [['quick', 'Quick'], ['classic', 'Classic']]);
+    show('best-bananagrams', bananas && `Best: ${bananas}`);
+    const score2048 = read('2048.best.v1', 0);
+    show('best-2048', score2048 && `Best: ${score2048.toLocaleString()}`);
+    const mines = times(read('minesweeper.best.v1', {}), [['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard']]);
+    show('best-minesweeper', mines && `Best: ${mines}`);
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
   </script>
 </body>

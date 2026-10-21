@@ -38,9 +38,9 @@ Good for daily puzzles. Most can generate unlimited levels from code.
 
 | Game | How it plays | Build | Status |
 |---|---|---|---|
-| **2048** | Swipe to slide numbered tiles; matching tiles merge. Reach 2048 (then keep going). | 🟢 | 💡 |
+| **2048** | Swipe to slide numbered tiles; matching tiles merge. Reach 2048 (then keep going). | 🟢 | ✅ |
 | **Sudoku** | 9×9 classic with pencil marks, mistake highlighting and Easy → Expert levels. | 🟡 | 💡 |
-| **Minesweeper** | Tap to reveal, long-press to flag. Three board sizes and a no-guess mode. | 🟢 | 💡 |
+| **Minesweeper** | Tap to reveal, long-press to flag. Three board sizes; the first tap is always safe. (Later: a no-guess mode.) | 🟢 | ✅ |
 | **Nonograms (Picross)** | Use row and column number clues to fill in squares and reveal a pixel picture. | 🟡 | 💡 |
 | **KenKen-style Math Grid** | Fill a grid so each row and column has each number once, and cages hit their target sums or products. | 🟡 | 💡 |
 | **Lights Out** | Tapping a light toggles it and its neighbours. Turn them all off. | 🟢 | 💡 |
@@ -144,8 +144,8 @@ Needs a small server or a peer-to-peer connection, so save for later.
 ## Suggested build order
 
 1. **Word of the Day**: easy, reuses the dictionary, great daily habit.
-2. **2048**: quick win and very satisfying on a phone.
-3. **Minesweeper**: classic, simple rules.
+2. ~~**2048**~~ ✅: quick win and very satisfying on a phone.
+3. ~~**Minesweeper**~~ ✅: classic, simple rules.
 4. **Spelling Hive**: reuses the dictionary again.
 5. **Solitaire (Klondike)**: builds the shared card deck for every other card game.
 6. **Sudoku**: unlimited generated puzzles.
