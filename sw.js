@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v8';
+const VERSION = 'v9';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -71,6 +71,14 @@ const ASSETS = [
   './games/spider/index.html',
   './games/spider/app.js',
   './games/spider/logic.js',
+  './games/word-ladder/',
+  './games/word-ladder/index.html',
+  './games/word-ladder/style.css',
+  './games/word-ladder/app.js',
+  './games/word-ladder/logic.js',
+  './games/word-ladder/puzzles.json',
+  './games/word-ladder/words.txt',
+  './games/word-ladder/common.txt',
 ];
 
 self.addEventListener('install', (event) => {

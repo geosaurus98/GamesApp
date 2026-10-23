@@ -25,7 +25,7 @@ tile styling.
 | **Spelling Hive** | Seven letters in a honeycomb with one required centre letter. Find as many words as you can; pangrams (using all 7) score big. Ranks from "Beginner" to "Genius". | 🟢 | ✅ |
 | **Boggle-style Grid** | 4×4 (or 5×5) grid of letter dice. Swipe through touching letters to make words before the 3-minute timer runs out. Show missed words at the end. | 🟡 | 💡 |
 | **Anagram Sprint** | Six or seven scrambled letters. Make every word you can; finding the full-length word moves you to the next round. | 🟢 | 💡 |
-| **Word Ladder** | Turn COLD into WARM one letter at a time, every step a real word. Daily puzzle with a par score. | 🟢 | 💡 |
+| **Word Ladder** | Turn COLD into WARM one letter at a time, every step a real word. Daily puzzle with a par score. | 🟢 | ✅ |
 | **Crossword Mini** | 5×5 crossword with short clues. Needs a clue list we write ourselves. | 🟡 | 💡 |
 | **Hangman** | Classic guess-the-letters, with categories and a cartoon banana instead of a stick figure. | 🟢 | 💡 |
 | **Word Search** | Find hidden words in a letter grid by swiping. Themed packs (animals, food, countries). | 🟢 | 💡 |

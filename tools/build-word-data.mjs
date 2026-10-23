@@ -1,4 +1,4 @@
-// Builds the data files for Word of the Day and Spelling Hive.
+// Builds the data files for Word of the Day, Spelling Hive and Word Ladder.
 //   node tools/build-word-data.mjs
 // Inputs: the ENABLE dictionary (games/bananagrams/words.txt) and common
 // words from SCOWL (tools/data/common-*.txt, see SCOWL-LICENSE.txt).
@@ -65,3 +65,64 @@ for (const p of shuffle(puzzles, seeded(7))) if (!bySet.has(p.letters)) bySet.se
 const hive = shuffle([...bySet.values()], seeded(99));
 writeFileSync(new URL('games/spelling-hive/puzzles.json', root), `${JSON.stringify(hive)}\n`);
 console.log(`Spelling Hive: ${hive.length} puzzles`);
+
+// ---------- Word Ladder ----------
+// Puzzles join two everyday words through common words, changing one letter
+// per step. Players may use any dictionary word along the way.
+function neighbours(list) {
+  const buckets = new Map();
+  for (const w of list) {
+    for (let i = 0; i < w.length; i++) {
+      const key = `${w.slice(0, i)}_${w.slice(i + 1)}`;
+      if (!buckets.has(key)) buckets.set(key, []);
+      buckets.get(key).push(w);
+    }
+  }
+  const graph = new Map(list.map((w) => [w, []]));
+  for (const group of buckets.values()) {
+    for (const a of group) for (const b of group) if (a !== b) graph.get(a).push(b);
+  }
+  return graph;
+}
+
+function bfs(graph, start) {
+  const prev = new Map([[start, null]]);
+  const dist = new Map([[start, 0]]);
+  const queue = [start];
+  for (let q = 0; q < queue.length; q++) {
+    const w = queue[q];
+    for (const n of graph.get(w)) {
+      if (dist.has(n)) continue;
+      dist.set(n, dist.get(w) + 1);
+      prev.set(n, w);
+      queue.push(n);
+    }
+  }
+  return { dist, prev };
+}
+
+const ladder = [];
+for (const len of [4, 5]) {
+  const graph = neighbours(common35.filter((w) => w.length === len));
+  const rng = seeded(len * 101);
+  const starts = shuffle(common20.filter((w) => w.length === len && !isInflected(w, set20) && graph.has(w)), rng);
+  const usedEnds = new Set();
+  for (const start of starts) {
+    const { dist, prev } = bfs(graph, start);
+    const ends = [...dist].filter(([w, d]) => d >= 3 && d <= 5 && set20.has(w) && !isInflected(w, set20) && !usedEnds.has(w)).map(([w]) => w);
+    if (!ends.length) continue;
+    const end = ends[Math.floor(rng() * ends.length)];
+    usedEnds.add(end);
+    const path = [end];
+    while (prev.get(path[0])) path.unshift(prev.get(path[0]));
+    ladder.push({ start, end, par: path.length - 1, path });
+  }
+}
+const ladderPuzzles = shuffle(ladder, seeded(4321)).slice(0, 1200);
+const ladderWords = [...enable].filter((w) => w.length === 4 || w.length === 5).sort();
+writeFileSync(new URL('games/word-ladder/puzzles.json', root), `${JSON.stringify(ladderPuzzles)}\n`);
+writeFileSync(new URL('games/word-ladder/words.txt', root), `${ladderWords.join('\n')}\n`);
+// Everyday words, so hints suggest words people know.
+const ladderCommon = common35.filter((w) => w.length === 4 || w.length === 5).sort();
+writeFileSync(new URL('games/word-ladder/common.txt', root), `${ladderCommon.join('\n')}\n`);
+console.log(`Word Ladder: ${ladderPuzzles.length} puzzles, ${ladderWords.length} playable words`);

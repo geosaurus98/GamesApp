@@ -39,6 +39,10 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Snake**: swipe to steer, eat apples to grow and speed up. Walls-on or
   no-walls mode, tap to pause, keeps your game if you switch apps, and best
   scores per mode.
+- **Word Ladder**: change one letter at a time to climb from one word to
+  another. A daily ladder plus practice (1,200 puzzles with 4- and 5-letter
+  words), par scores, hints that suggest everyday words, streaks and a
+  shareable result.
 - **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
   score, and arrow keys on a computer.
 - **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a
@@ -87,7 +91,7 @@ tests/                     node:test tests for game logic
 
 ## Word data
 
-Word of the Day answers and Spelling Hive puzzles are generated from the
+Word of the Day answers, Spelling Hive puzzles and Word Ladder puzzles are generated from the
 ENABLE dictionary plus common-word lists from
 [SCOWL](http://wordlist.aspell.net/) (`tools/data/`, licence in
 `SCOWL-LICENSE.txt`). Words in `tools/data/blocklist.txt` are never used as
