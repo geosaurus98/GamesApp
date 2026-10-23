@@ -28,6 +28,12 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Spider**: two decks in ten columns with 1, 2 or 4 suits. Same-suit runs
   move together, finished King-to-Ace runs clear away, five deals from the
   stock, hints, undo and win records per suit count.
+- **Pyramid**: remove pairs adding to 13 (Kings alone) from uncovered cards
+  and the deck, three passes through the deck, tap or drag pairs, hints
+  and undo.
+- **Golf**: play column cards one higher or lower onto the pile; low score
+  wins. Streak counter, hints that light up playable cards, undo, best and
+  average scores.
 - **Sudoku**: endless generated puzzles with exactly one solution, in
   Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
   for the selected row, column and number, mistake checking you can turn

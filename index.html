@@ -73,6 +73,18 @@
       <span class="desc">Two decks, ten columns. Build King to Ace in one suit.</span>
       <span class="best" id="best-spider"></span>
     </a>
+    <a class="card" href="games/pyramid/">
+      <span class="emoji">🔺</span>
+      <span class="name">Pyramid</span>
+      <span class="desc">Pair up cards that add to 13 and clear the pyramid.</span>
+      <span class="best" id="best-pyramid"></span>
+    </a>
+    <a class="card" href="games/golf/">
+      <span class="emoji">⛳</span>
+      <span class="name">Golf</span>
+      <span class="desc">Play cards one higher or lower. Lowest score wins.</span>
+      <span class="best" id="best-golf"></span>
+    </a>
     <a class="card" href="games/sudoku/">
       <span class="emoji">🔢</span>
       <span class="name">Sudoku</span>
@@ -135,6 +147,10 @@
     show('best-spider', spiderWon && `Won ${spiderWon}`);
     const blocks = read('blocks.best.v1', 0);
     show('best-blocks', blocks && `Best: ${blocks.toLocaleString()}`);
+    const pyr = read('pyramid.record.v1', null);
+    show('best-pyramid', pyr?.won && `Won ${pyr.won} of ${pyr.played}`);
+    const golf = read('golf.record.v1', null);
+    show('best-golf', golf?.best != null && `Best score: ${golf.best}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);

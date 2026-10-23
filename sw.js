@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v10';
+const VERSION = 'v11';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -84,6 +84,14 @@ const ASSETS = [
   './games/blocks/style.css',
   './games/blocks/app.js',
   './games/blocks/logic.js',
+  './games/pyramid/',
+  './games/pyramid/index.html',
+  './games/pyramid/app.js',
+  './games/pyramid/logic.js',
+  './games/golf/',
+  './games/golf/index.html',
+  './games/golf/app.js',
+  './games/golf/logic.js',
 ];
 
 self.addEventListener('install', (event) => {

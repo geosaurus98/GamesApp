@@ -79,6 +79,9 @@
 .card.down > * { display: none; }
 .card.dragging { transition: none; z-index: 500 !important; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45); }
 .card.instant { transition: none; }
+.card.selected { box-shadow: 0 0 0 3px var(--accent), 0 4px 12px rgba(0, 0, 0, 0.4); transform-origin: center; }
+.card.blocked { filter: brightness(0.82); }
+.card.gone { opacity: 0; pointer-events: none; transition: transform 0.25s ease, opacity 0.25s ease; }
 .card.hint, .slot.hint { animation: hint 0.5s ease 3; }
 .card.nope { animation: nope 0.3s; }
 

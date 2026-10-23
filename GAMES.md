@@ -60,8 +60,8 @@ of these.
 | **Solitaire (Klondike)** | The classic. Draw 1 or draw 3, tap-to-auto-move, undo. | 🟡 | ✅ |
 | **Spider Solitaire** | 1, 2 or 4 suits. Build full suit runs from King to Ace. | 🟡 | ✅ |
 | **FreeCell** | Almost every deal is solvable; numbered deals so you can retry one. | 🟡 | ✅ |
-| **Pyramid** | Remove pairs that add up to 13. | 🟢 | 💡 |
-| **Golf Solitaire** | Clear the tableau by playing one higher or lower than the top card. | 🟢 | 💡 |
+| **Pyramid** | Remove pairs that add up to 13. | 🟢 | ✅ |
+| **Golf Solitaire** | Clear the tableau by playing one higher or lower than the top card. | 🟢 | ✅ |
 | **Crazy Eights** | Versus 1–3 computer players. | 🟡 | 💡 |
 | **Blackjack** | Practice mode with a strategy hint button and pretend chips. | 🟢 | 💡 |
 | **Hearts / Spades** | Four-player trick-taking against computer players. | 🔴 | 💡 |
