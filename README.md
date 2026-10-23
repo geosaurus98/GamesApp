@@ -34,6 +34,9 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Golf**: play column cards one higher or lower onto the pile; low score
   wins. Streak counter, hints that light up playable cards, undo, best and
   average scores.
+- **Blackjack**: you against the dealer with pretend chips: six-deck shoe,
+  dealer stands on soft 17, blackjack pays 3 to 2, double, split. A
+  strategy coach shows the textbook move and tracks how often you play it.
 - **Sudoku**: endless generated puzzles with exactly one solution, in
   Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
   for the selected row, column and number, mistake checking you can turn

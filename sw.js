@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v11';
+const VERSION = 'v12';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -92,6 +92,11 @@ const ASSETS = [
   './games/golf/index.html',
   './games/golf/app.js',
   './games/golf/logic.js',
+  './games/blackjack/',
+  './games/blackjack/index.html',
+  './games/blackjack/style.css',
+  './games/blackjack/app.js',
+  './games/blackjack/logic.js',
 ];
 
 self.addEventListener('install', (event) => {

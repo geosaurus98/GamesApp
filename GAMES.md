@@ -63,7 +63,7 @@ of these.
 | **Pyramid** | Remove pairs that add up to 13. | 🟢 | ✅ |
 | **Golf Solitaire** | Clear the tableau by playing one higher or lower than the top card. | 🟢 | ✅ |
 | **Crazy Eights** | Versus 1–3 computer players. | 🟡 | 💡 |
-| **Blackjack** | Practice mode with a strategy hint button and pretend chips. | 🟢 | 💡 |
+| **Blackjack** | Practice mode with a strategy hint button and pretend chips. | 🟢 | ✅ |
 | **Hearts / Spades** | Four-player trick-taking against computer players. | 🔴 | 💡 |
 | **Cribbage** | Board, pegging and scoring against the computer. | 🔴 | 💡 |
 

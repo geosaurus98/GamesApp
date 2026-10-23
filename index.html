@@ -85,6 +85,12 @@
       <span class="desc">Play cards one higher or lower. Lowest score wins.</span>
       <span class="best" id="best-golf"></span>
     </a>
+    <a class="card" href="games/blackjack/">
+      <span class="emoji">🎰</span>
+      <span class="name">Blackjack</span>
+      <span class="desc">Beat the dealer to 21. Pretend chips, with a strategy coach.</span>
+      <span class="best" id="best-blackjack"></span>
+    </a>
     <a class="card" href="games/sudoku/">
       <span class="emoji">🔢</span>
       <span class="name">Sudoku</span>
@@ -151,6 +157,8 @@
     show('best-pyramid', pyr?.won && `Won ${pyr.won} of ${pyr.played}`);
     const golf = read('golf.record.v1', null);
     show('best-golf', golf?.best != null && `Best score: ${golf.best}`);
+    const bj = read('blackjack.save.v1', null);
+    if (bj?.stats?.hands) show('best-blackjack', `Chips: ${bj.bank.toLocaleString()}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);
