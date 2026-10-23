@@ -37,6 +37,9 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Blackjack**: you against the dealer with pretend chips: six-deck shoe,
   dealer stands on soft 17, blackjack pays 3 to 2, double, split. A
   strategy coach shows the textbook move and tracks how often you play it.
+- **Crazy Eights**: match the top card's suit or number, eights are wild
+  and choose the suit. Play 1 to 3 computer players, draw up to three when
+  stuck, and score the cards left in other hands.
 - **Sudoku**: endless generated puzzles with exactly one solution, in
   Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
   for the selected row, column and number, mistake checking you can turn

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Crazy Eights</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <h1>Crazy Eights</h1>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <main class="felt">
+    <section id="opponents" class="opponents"></section>
+    <section class="middle">
+      <button id="stock" class="pile stock" aria-label="Draw a card"><span id="stock-count"></span></button>
+      <div id="discard" class="pile discard"></div>
+      <div id="suit-badge" class="suit-badge" hidden></div>
+    </section>
+    <div id="status" class="status" aria-live="polite"></div>
+    <section class="you">
+      <div id="hand" class="hand"></div>
+    </section>
+  </main>
+
+  <footer class="actions">
+    <div class="score-line" id="score-line"></div>
+    <button class="btn" id="pass-btn">Pass</button>
+    <button class="btn primary" id="next-btn" hidden>Next round</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="suit-picker">
+    <h2>Pick a suit</h2>
+    <p class="muted">Your eight changes the suit to…</p>
+    <div class="suits">
+      <button data-suit="0" class="suit">♠</button>
+      <button data-suit="1" class="suit red">♥</button>
+      <button data-suit="2" class="suit red">♦</button>
+      <button data-suit="3" class="suit">♣</button>
+    </div>
+    <button class="btn wide" data-close>Cancel</button>
+  </dialog>
+
+  <dialog id="menu">
+    <h2>Crazy Eights</h2>
+    <button class="btn primary wide" data-players="2">New game vs 1 computer</button>
+    <button class="btn primary wide" data-players="3">New game vs 2 computers</button>
+    <button class="btn primary wide" data-players="4">New game vs 3 computers</button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Be the first to get rid of all your cards.</li>
+        <li>Play a card that matches the top card's <b>suit</b> or <b>number</b>. Playable cards are lifted up.</li>
+        <li><b>Eights are wild</b>: play one any time and choose the next suit.</li>
+        <li>Can't play? Tap the deck to draw (up to 3 cards), then <b>Pass</b> if you still can't.</li>
+        <li>The winner scores the cards left in everyone else's hands: eights 50, pictures 10, others their number.</li>
+      </ul>
+    </details>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

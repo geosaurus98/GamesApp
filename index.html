@@ -91,6 +91,12 @@
       <span class="desc">Beat the dealer to 21. Pretend chips, with a strategy coach.</span>
       <span class="best" id="best-blackjack"></span>
     </a>
+    <a class="card" href="games/crazy-eights/">
+      <span class="emoji">🎴</span>
+      <span class="name">Crazy Eights</span>
+      <span class="desc">Match suit or number, eights are wild. Beat 1 to 3 computers.</span>
+      <span class="best" id="best-crazy8"></span>
+    </a>
     <a class="card" href="games/sudoku/">
       <span class="emoji">🔢</span>
       <span class="name">Sudoku</span>
@@ -159,6 +165,8 @@
     show('best-golf', golf?.best != null && `Best score: ${golf.best}`);
     const bj = read('blackjack.save.v1', null);
     if (bj?.stats?.hands) show('best-blackjack', `Chips: ${bj.bank.toLocaleString()}`);
+    const c8 = read('crazy8.save.v1', null);
+    if (c8?.wins?.some(Boolean)) show('best-crazy8', `Rounds won: ${c8.wins[0]}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);
