@@ -1,0 +1,103 @@
+/* Shared card table look for card games (FreeCell, Spider). Games set
+   --cw / --ch (card size) on .board, and optionally --corner (rank size). */
+.stats {
+  display: flex;
+  gap: 18px;
+  font-weight: 700;
+  font-size: 17px;
+  font-variant-numeric: tabular-nums;
+}
+
+.table {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, #2f7d4f, #1c5534);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.board {
+  --corner: calc(var(--cw) * 0.3);
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.slot {
+  position: absolute;
+  border-radius: calc(var(--cw) * 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: calc(var(--cw) * 0.5);
+}
+.slot.clickable { cursor: pointer; }
+
+.card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--cw);
+  height: var(--ch);
+  border-radius: calc(var(--cw) * 0.1);
+  background: #fff;
+  color: #1d1d1f;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  transition: transform 0.18s ease;
+  will-change: transform;
+  touch-action: none;
+  cursor: pointer;
+}
+.card.red { color: #d0212b; }
+.card .corner {
+  position: absolute;
+  top: calc(var(--cw) * 0.04);
+  left: calc(var(--cw) * 0.07);
+  font-weight: 800;
+  font-size: var(--corner);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.card .corner small { font-size: calc(var(--corner) * 0.85); margin-left: 1px; }
+.card .pip {
+  position: absolute;
+  right: calc(var(--cw) * 0.06);
+  bottom: calc(var(--cw) * 0.02);
+  font-size: calc(var(--cw) * 0.5);
+  line-height: 1;
+}
+.card.down {
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.12) 0 4px, transparent 4px 8px),
+    linear-gradient(#2d5fb5, #1e4590);
+  border: 2px solid #fff;
+}
+.card.down > * { display: none; }
+.card.dragging { transition: none; z-index: 500 !important; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45); }
+.card.instant { transition: none; }
+.card.hint, .slot.hint { animation: hint 0.5s ease 3; }
+.card.nope { animation: nope 0.3s; }
+
+@keyframes hint {
+  50% { box-shadow: 0 0 0 4px var(--accent), 0 0 18px var(--accent); }
+}
+@keyframes nope {
+  25% { margin-left: -6px; }
+  75% { margin-left: 6px; }
+}
+
+.actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 8px;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  background: var(--surface);
+}
+.actions .btn[hidden] { display: none; }
+
+.record { margin-top: 14px; }
+.record:empty { display: none; }

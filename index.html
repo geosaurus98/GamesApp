@@ -55,6 +55,12 @@
       <span class="desc">Classic Klondike. Draw 1 or Draw 3.</span>
       <span class="best" id="best-solitaire"></span>
     </a>
+    <a class="card" href="games/freecell/">
+      <span class="emoji">🂡</span>
+      <span class="name">FreeCell</span>
+      <span class="desc">Solitaire where every card is face up. Almost always winnable.</span>
+      <span class="best" id="best-freecell"></span>
+    </a>
     <a class="card" href="games/sudoku/">
       <span class="emoji">🔢</span>
       <span class="name">Sudoku</span>
@@ -104,6 +110,8 @@
     const snake = read('snake.best.v1', {});
     const snakeBest = Math.max(snake.walls ?? 0, snake.wrap ?? 0);
     show('best-snake', snakeBest && `Best: ${snakeBest}`);
+    const fc = read('freecell.record.v1', null);
+    show('best-freecell', fc?.won && `Won ${fc.won} of ${fc.played}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);

@@ -22,6 +22,9 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Solitaire** (Klondike): tap a card to send it to the best spot or drag
   whole runs, Draw 1 or Draw 3, hints, unlimited undo, restart the same
   deal, one-tap auto-finish, and win records.
+- **FreeCell**: all cards face up, four free cells, multi-card moves when
+  there's room, safe cards go home by themselves. Uses the classic deal
+  numbers, so you can replay or share a deal (#1 is the famous one).
 - **Sudoku**: endless generated puzzles with exactly one solution, in
   Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
   for the selected row, column and number, mistake checking you can turn
