@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Pyramid</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="../../shared/cards.css">
+  <style>
+    .pass-label { position: absolute; color: rgba(255, 255, 255, 0.8); font-size: 13px; font-weight: 700; text-align: center; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <div class="stats">
+      <span id="left">28 left</span>
+      <span id="timer">0:00</span>
+    </div>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <main id="table" class="table">
+    <div id="board" class="board"></div>
+  </main>
+
+  <footer class="actions">
+    <button id="new-btn" class="btn">New</button>
+    <button id="hint-btn" class="btn">Hint</button>
+    <button id="undo-btn" class="btn">Undo</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Pyramid</h2>
+    <button class="btn primary wide" id="menu-new">New game</button>
+    <details open>
+      <summary>How to play</summary>
+      <ul>
+        <li>Clear the pyramid by removing pairs of cards that add up to <b>13</b>. Jacks are 11, Queens 12, and <b>Kings</b> (13) go on their own.</li>
+        <li>Only cards with nothing resting on them can be used.</li>
+        <li>Tap two cards to pair them (or drag one onto the other). Tap a King to remove it.</li>
+        <li>Tap the deck to turn over a card; the top face-up card can be paired too. You can go through the deck three times.</li>
+      </ul>
+    </details>
+    <dl id="record" class="stats-list record"></dl>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <dialog id="end">
+    <div id="end-banner" class="banner"></div>
+    <dl id="end-stats" class="stats-list"></dl>
+    <button class="btn primary wide" id="again-btn">New game</button>
+    <button class="btn wide" id="end-undo">Undo last move</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

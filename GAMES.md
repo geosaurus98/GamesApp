@@ -25,7 +25,7 @@ tile styling.
 | **Spelling Hive** | Seven letters in a honeycomb with one required centre letter. Find as many words as you can; pangrams (using all 7) score big. Ranks from "Beginner" to "Genius". | 🟢 | ✅ |
 | **Boggle-style Grid** | 4×4 (or 5×5) grid of letter dice. Swipe through touching letters to make words before the 3-minute timer runs out. Show missed words at the end. | 🟡 | 💡 |
 | **Anagram Sprint** | Six or seven scrambled letters. Make every word you can; finding the full-length word moves you to the next round. | 🟢 | 💡 |
-| **Word Ladder** | Turn COLD into WARM one letter at a time, every step a real word. Daily puzzle with a par score. | 🟢 | 💡 |
+| **Word Ladder** | Turn COLD into WARM one letter at a time, every step a real word. Daily puzzle with a par score. | 🟢 | ✅ |
 | **Crossword Mini** | 5×5 crossword with short clues. Needs a clue list we write ourselves. | 🟡 | 💡 |
 | **Hangman** | Classic guess-the-letters, with categories and a cartoon banana instead of a stick figure. | 🟢 | 💡 |
 | **Word Search** | Find hidden words in a letter grid by swiping. Themed packs (animals, food, countries). | 🟢 | 💡 |
@@ -58,12 +58,12 @@ of these.
 | Game | How it plays | Build | Status |
 |---|---|---|---|
 | **Solitaire (Klondike)** | The classic. Draw 1 or draw 3, tap-to-auto-move, undo. | 🟡 | ✅ |
-| **Spider Solitaire** | 1, 2 or 4 suits. Build full suit runs from King to Ace. | 🟡 | 💡 |
-| **FreeCell** | Almost every deal is solvable; numbered deals so you can retry one. | 🟡 | 💡 |
-| **Pyramid** | Remove pairs that add up to 13. | 🟢 | 💡 |
-| **Golf Solitaire** | Clear the tableau by playing one higher or lower than the top card. | 🟢 | 💡 |
-| **Crazy Eights** | Versus 1–3 computer players. | 🟡 | 💡 |
-| **Blackjack** | Practice mode with a strategy hint button and pretend chips. | 🟢 | 💡 |
+| **Spider Solitaire** | 1, 2 or 4 suits. Build full suit runs from King to Ace. | 🟡 | ✅ |
+| **FreeCell** | Almost every deal is solvable; numbered deals so you can retry one. | 🟡 | ✅ |
+| **Pyramid** | Remove pairs that add up to 13. | 🟢 | ✅ |
+| **Golf Solitaire** | Clear the tableau by playing one higher or lower than the top card. | 🟢 | ✅ |
+| **Crazy Eights** | Versus 1–3 computer players. | 🟡 | ✅ |
+| **Blackjack** | Practice mode with a strategy hint button and pretend chips. | 🟢 | ✅ |
 | **Hearts / Spades** | Four-player trick-taking against computer players. | 🔴 | 💡 |
 | **Cribbage** | Board, pegging and scoring against the computer. | 🔴 | 💡 |
 
@@ -74,7 +74,7 @@ of these.
 | Game | How it plays | Build | Status |
 |---|---|---|---|
 | **Tic-Tac-Toe** | Including an "Ultimate" 9-board version. | 🟢 | 💡 |
-| **Connect Four** | Drop discs; four in a row wins. Computer opponent with difficulty levels. | 🟢 | 💡 |
+| **Connect Four** | Drop discs; four in a row wins. Computer opponent with difficulty levels. | 🟢 | ✅ |
 | **Dots and Boxes** | Take turns drawing lines; complete a box to score and go again. | 🟢 | 💡 |
 | **Checkers** | Forced captures, kings, simple computer opponent. | 🟡 | 💡 |
 | **Reversi (Othello)** | Flip your opponent's discs by surrounding them. | 🟡 | 💡 |
@@ -100,10 +100,10 @@ tilt.
 
 | Game | How it plays | Build | Status |
 |---|---|---|---|
-| **Snake** | Swipe to steer; eat, grow, don't bite yourself. | 🟢 | 💡 |
+| **Snake** | Swipe to steer; eat, grow, don't bite yourself. | 🟢 | ✅ |
 | **Flappy-style** | Tap to flap through gaps. Banana-themed, obviously. | 🟢 | 💡 |
 | **Breakout** | Drag the paddle; bounce the ball to smash bricks. Power-ups. | 🟡 | 💡 |
-| **Falling Blocks** | Tetris-style line clearing with swipe and tap controls. | 🟡 | 💡 |
+| **Falling Blocks** | Tetris-style line clearing with swipe and tap controls. | 🟡 | ✅ |
 | **Endless Runner** | Tap to jump, swipe to duck. Distance is your score. | 🟡 | 💡 |
 | **Asteroids** | Thumb joystick and fire button; split rocks into smaller rocks. | 🟡 | 💡 |
 | **Fruit Slice** | Swipe to slice flying fruit; avoid the bombs. | 🟡 | 💡 |
@@ -149,8 +149,8 @@ Needs a small server or a peer-to-peer connection, so save for later.
 4. ~~**Spelling Hive**~~ ✅: reuses the dictionary again.
 5. ~~**Solitaire (Klondike)**~~ ✅: builds the shared card deck for every other card game.
 6. ~~**Sudoku**~~ ✅: unlimited generated puzzles.
-7. **Connect Four**: first game with a computer opponent.
-8. **Snake**: first arcade game; sets up the canvas game loop.
+7. ~~**Connect Four**~~ ✅: first game with a computer opponent.
+8. ~~**Snake**~~ ✅: first arcade game; sets up the canvas game loop.
 
 ## App-wide ideas
 

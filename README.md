@@ -22,10 +22,43 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **Solitaire** (Klondike): tap a card to send it to the best spot or drag
   whole runs, Draw 1 or Draw 3, hints, unlimited undo, restart the same
   deal, one-tap auto-finish, and win records.
+- **FreeCell**: all cards face up, four free cells, multi-card moves when
+  there's room, safe cards go home by themselves. Uses the classic deal
+  numbers, so you can replay or share a deal (#1 is the famous one).
+- **Spider**: two decks in ten columns with 1, 2 or 4 suits. Same-suit runs
+  move together, finished King-to-Ace runs clear away, five deals from the
+  stock, hints, undo and win records per suit count.
+- **Pyramid**: remove pairs adding to 13 (Kings alone) from uncovered cards
+  and the deck, three passes through the deck, tap or drag pairs, hints
+  and undo.
+- **Golf**: play column cards one higher or lower onto the pile; low score
+  wins. Streak counter, hints that light up playable cards, undo, best and
+  average scores.
+- **Blackjack**: you against the dealer with pretend chips: six-deck shoe,
+  dealer stands on soft 17, blackjack pays 3 to 2, double, split. A
+  strategy coach shows the textbook move and tracks how often you play it.
+- **Crazy Eights**: match the top card's suit or number, eights are wild
+  and choose the suit. Play 1 to 3 computer players, draw up to three when
+  stuck, and score the cards left in other hands.
 - **Sudoku**: endless generated puzzles with exactly one solution, in
   Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
   for the selected row, column and number, mistake checking you can turn
   off, hints, undo and best times.
+- **Connect Four**: play the computer (Easy, Medium or Hard; it looks up
+  to 8 moves ahead) or a friend on the same phone. Falling-disc animation,
+  the winning four light up, undo, a running scoreboard and players take
+  turns going first.
+- **Snake**: swipe to steer, eat apples to grow and speed up. Walls-on or
+  no-walls mode, tap to pause, keeps your game if you switch apps, and best
+  scores per mode.
+- **Word Ladder**: change one letter at a time to climb from one word to
+  another. A daily ladder plus practice (1,200 puzzles with 4- and 5-letter
+  words), par scores, hints that suggest everyday words, streaks and a
+  shareable result.
+- **Falling Blocks**: a Tetris-style game. Tap to rotate, drag to move,
+  flick down to drop and up to hold, or use the buttons (which repeat when
+  held). Ghost piece, hold, three-piece preview, levels that speed up,
+  pause and resume, and best score.
 - **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
   score, and arrow keys on a computer.
 - **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a
@@ -74,7 +107,7 @@ tests/                     node:test tests for game logic
 
 ## Word data
 
-Word of the Day answers and Spelling Hive puzzles are generated from the
+Word of the Day answers, Spelling Hive puzzles and Word Ladder puzzles are generated from the
 ENABLE dictionary plus common-word lists from
 [SCOWL](http://wordlist.aspell.net/) (`tools/data/`, licence in
 `SCOWL-LICENSE.txt`). Words in `tools/data/blocklist.txt` are never used as

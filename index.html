@@ -37,6 +37,12 @@
       <span class="desc">Make words from seven letters. Always use the middle one.</span>
       <span class="best" id="best-hive"></span>
     </a>
+    <a class="card" href="games/word-ladder/">
+      <span class="emoji">🪜</span>
+      <span class="name">Word Ladder</span>
+      <span class="desc">Change one letter at a time to reach the goal word.</span>
+      <span class="best" id="best-ladder"></span>
+    </a>
     <a class="card" href="games/2048/">
       <span class="emoji">🧮</span>
       <span class="name">2048</span>
@@ -55,11 +61,65 @@
       <span class="desc">Classic Klondike. Draw 1 or Draw 3.</span>
       <span class="best" id="best-solitaire"></span>
     </a>
+    <a class="card" href="games/freecell/">
+      <span class="emoji">🂡</span>
+      <span class="name">FreeCell</span>
+      <span class="desc">Solitaire where every card is face up. Almost always winnable.</span>
+      <span class="best" id="best-freecell"></span>
+    </a>
+    <a class="card" href="games/spider/">
+      <span class="emoji">🕷️</span>
+      <span class="name">Spider</span>
+      <span class="desc">Two decks, ten columns. Build King to Ace in one suit.</span>
+      <span class="best" id="best-spider"></span>
+    </a>
+    <a class="card" href="games/pyramid/">
+      <span class="emoji">🔺</span>
+      <span class="name">Pyramid</span>
+      <span class="desc">Pair up cards that add to 13 and clear the pyramid.</span>
+      <span class="best" id="best-pyramid"></span>
+    </a>
+    <a class="card" href="games/golf/">
+      <span class="emoji">⛳</span>
+      <span class="name">Golf</span>
+      <span class="desc">Play cards one higher or lower. Lowest score wins.</span>
+      <span class="best" id="best-golf"></span>
+    </a>
+    <a class="card" href="games/blackjack/">
+      <span class="emoji">🎰</span>
+      <span class="name">Blackjack</span>
+      <span class="desc">Beat the dealer to 21. Pretend chips, with a strategy coach.</span>
+      <span class="best" id="best-blackjack"></span>
+    </a>
+    <a class="card" href="games/crazy-eights/">
+      <span class="emoji">🎴</span>
+      <span class="name">Crazy Eights</span>
+      <span class="desc">Match suit or number, eights are wild. Beat 1 to 3 computers.</span>
+      <span class="best" id="best-crazy8"></span>
+    </a>
     <a class="card" href="games/sudoku/">
       <span class="emoji">🔢</span>
       <span class="name">Sudoku</span>
       <span class="desc">Fill the grid with 1 to 9. Four levels, endless puzzles.</span>
       <span class="best" id="best-sudoku"></span>
+    </a>
+    <a class="card" href="games/connect-four/">
+      <span class="emoji">🔴</span>
+      <span class="name">Connect Four</span>
+      <span class="desc">Four in a row beats the computer, or a friend.</span>
+      <span class="best" id="best-connect4"></span>
+    </a>
+    <a class="card" href="games/blocks/">
+      <span class="emoji">🧱</span>
+      <span class="name">Falling Blocks</span>
+      <span class="desc">Fit the falling pieces together and clear rows.</span>
+      <span class="best" id="best-blocks"></span>
+    </a>
+    <a class="card" href="games/snake/">
+      <span class="emoji">🐍</span>
+      <span class="name">Snake</span>
+      <span class="desc">Swipe to steer, eat apples, don't bite yourself.</span>
+      <span class="best" id="best-snake"></span>
     </a>
     <div class="card soon" aria-disabled="true">
       <span class="emoji">🎲</span>
@@ -85,6 +145,28 @@
     show('best-solitaire', sol?.won && `Won ${sol.won} of ${sol.played}`);
     const sudoku = times(read('sudoku.best.v1', {}), [['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard'], ['expert', 'Expert']]);
     show('best-sudoku', sudoku && `Best: ${sudoku}`);
+    const c4 = read('connect4.save.v1', null);
+    if (c4?.scores && c4.mode !== 'two' && (c4.scores[1] || c4.scores[2])) {
+      show('best-connect4', `You ${c4.scores[1]} – ${c4.scores[2]} Computer`);
+    }
+    const snake = read('snake.best.v1', {});
+    const snakeBest = Math.max(snake.walls ?? 0, snake.wrap ?? 0);
+    show('best-snake', snakeBest && `Best: ${snakeBest}`);
+    const fc = read('freecell.record.v1', null);
+    show('best-freecell', fc?.won && `Won ${fc.won} of ${fc.played}`);
+    const spider = read('spider.record.v1', {});
+    const spiderWon = [1, 2, 4].reduce((n, k) => n + (spider[`s${k}`]?.won ?? 0), 0);
+    show('best-spider', spiderWon && `Won ${spiderWon}`);
+    const blocks = read('blocks.best.v1', 0);
+    show('best-blocks', blocks && `Best: ${blocks.toLocaleString()}`);
+    const pyr = read('pyramid.record.v1', null);
+    show('best-pyramid', pyr?.won && `Won ${pyr.won} of ${pyr.played}`);
+    const golf = read('golf.record.v1', null);
+    show('best-golf', golf?.best != null && `Best score: ${golf.best}`);
+    const bj = read('blackjack.save.v1', null);
+    if (bj?.stats?.hands) show('best-blackjack', `Chips: ${bj.bank.toLocaleString()}`);
+    const c8 = read('crazy8.save.v1', null);
+    if (c8?.wins?.some(Boolean)) show('best-crazy8', `Rounds won: ${c8.wins[0]}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);
@@ -92,6 +174,12 @@
     const wotdStats = read('wotd.stats.v1', null);
     const wotdToday = wotd?.day === today && wotd.status !== 'playing' ? (wotd.status === 'won' ? 'Today ✓' : 'Today ✗') : 'Today: not played';
     show('best-wotd', wotdStats ? `${wotdToday} · Streak ${wotdStats.streak}` : '');
+    const ladder = read('ladder.daily.v1', null);
+    const ladderStats = read('ladder.stats.v1', null);
+    if (ladderStats) {
+      const done = ladder?.day === today && ladder.status === 'won';
+      show('best-ladder', `${done ? 'Today ✓' : 'Today: not solved'} · Streak ${ladderStats.streak}`);
+    }
     const hive = read('hive.daily.v1', null);
     if (hive?.day === today && hive.found.length) {
       show('best-hive', `Today: ${hive.found.length + hive.bonus.length} words, ${hive.score} pts`);

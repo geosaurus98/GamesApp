@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Falling Blocks</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <h1>Falling Blocks</h1>
+    <button id="menu-btn" class="icon-btn pause-btn" aria-label="Pause and menu">&#10073;&#10073;</button>
+  </header>
+
+  <div class="hud">
+    <div><span>Score</span><b id="score">0</b></div>
+    <div><span>Level</span><b id="level">1</b></div>
+    <div><span>Lines</span><b id="lines">0</b></div>
+    <div><span>Best</span><b id="best">0</b></div>
+  </div>
+
+  <main id="stage" class="stage">
+    <div id="board-wrap" class="board-wrap">
+      <canvas id="board" aria-label="Board"></canvas>
+      <div id="popup" class="popup"></div>
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <div id="overlay-title" class="overlay-title">Falling Blocks</div>
+          <div id="overlay-text" class="overlay-text">Tap to start</div>
+          <button id="overlay-btn" class="btn primary" hidden>Play again</button>
+        </div>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="box"><span>Hold</span><canvas id="hold" width="80" height="60"></canvas></div>
+      <div class="box"><span>Next</span><canvas id="next" width="80" height="170"></canvas></div>
+    </aside>
+  </main>
+
+  <div class="controls">
+    <button data-act="hold" aria-label="Hold">⇄</button>
+    <button data-act="left" aria-label="Move left">◀</button>
+    <button data-act="rotate" aria-label="Rotate">⟳</button>
+    <button data-act="right" aria-label="Move right">▶</button>
+    <button data-act="down" aria-label="Soft drop">▼</button>
+    <button data-act="drop" aria-label="Hard drop">⤓</button>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Paused</h2>
+    <button class="btn primary wide" id="resume-btn">Resume</button>
+    <button class="btn wide" data-start="1">New game from level 1</button>
+    <button class="btn wide" data-start="5">New game from level 5</button>
+    <button class="btn wide" data-start="10">New game from level 10</button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Fit the falling blocks together. A full row disappears and scores points; clearing several rows at once scores much more.</li>
+        <li><b>On the board:</b> tap to rotate, drag left or right to move, drag down to drop faster, flick down to drop straight away, flick up to hold.</li>
+        <li><b>Buttons:</b> ⇄ hold, ◀ ▶ move, ⟳ rotate, ▼ faster, ⤓ drop.</li>
+        <li><b>Hold</b> keeps a piece for later (once per piece). The faint outline shows where the piece will land.</li>
+        <li>Every 10 rows the level goes up and blocks fall faster.</li>
+      </ul>
+    </details>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

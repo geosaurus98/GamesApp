@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Blackjack</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <h1>Blackjack</h1>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <main class="felt">
+    <section class="seat dealer">
+      <div class="label">Dealer <b id="dealer-total" class="total"></b></div>
+      <div id="dealer-hand" class="hand"></div>
+    </section>
+    <div id="message" class="message" aria-live="polite"></div>
+    <section id="player-hands" class="player-hands"></section>
+  </main>
+
+  <div class="bank">
+    <span>Chips <b id="bank">1,000</b></span>
+    <span id="bet-label">Bet <b id="bet">0</b></span>
+  </div>
+
+  <footer class="controls">
+    <div id="bet-controls" class="row">
+      <button class="chip c5" data-chip="5">5</button>
+      <button class="chip c25" data-chip="25">25</button>
+      <button class="chip c100" data-chip="100">100</button>
+      <button class="chip c500" data-chip="500">500</button>
+      <button class="btn" id="clear-btn">Clear</button>
+      <button class="btn primary" id="deal-btn">Deal</button>
+    </div>
+    <div id="play-controls" class="row" hidden>
+      <button class="btn" data-act="hit">Hit</button>
+      <button class="btn" data-act="stand">Stand</button>
+      <button class="btn" data-act="double">Double</button>
+      <button class="btn" data-act="split">Split</button>
+      <button class="btn coach" id="coach-btn" aria-label="What should I do?">💡</button>
+    </div>
+    <div id="done-controls" class="row" hidden>
+      <button class="btn" id="change-btn">Change bet</button>
+      <button class="btn primary" id="again-btn">Deal again</button>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Blackjack</h2>
+    <label class="toggle">
+      <input type="checkbox" id="coach-toggle">
+      Strategy coach: tell me when the textbook move is different
+    </label>
+    <dl id="stats" class="stats-list stats"></dl>
+    <button class="btn wide" id="reset-btn">Reset chips to 1,000</button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Get closer to 21 than the dealer without going over. Number cards count their number, J/Q/K count 10, and an Ace is 1 or 11.</li>
+        <li>Tap chips to bet, then <b>Deal</b>. <b>Hit</b> takes a card, <b>Stand</b> stops.</li>
+        <li><b>Double</b>: double your bet and take exactly one more card. <b>Split</b>: turn a pair into two hands (you put in another bet).</li>
+        <li>The dealer must hit until 17. A blackjack (Ace + 10-card) pays 3 to 2.</li>
+        <li>Tap 💡 to see the textbook best move. These are pretend chips: no real money.</li>
+      </ul>
+    </details>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

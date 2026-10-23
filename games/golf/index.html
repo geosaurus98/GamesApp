@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Golf</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="../../shared/cards.css">
+  <style>
+    .stock-label { position: absolute; color: rgba(255, 255, 255, 0.8); font-size: 13px; font-weight: 700; text-align: center; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <div class="stats">
+      <span id="left">35 left</span>
+      <span id="streak">Streak 0</span>
+    </div>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <main id="table" class="table">
+    <div id="board" class="board"></div>
+  </main>
+
+  <footer class="actions">
+    <button id="new-btn" class="btn">New</button>
+    <button id="hint-btn" class="btn">Hint</button>
+    <button id="undo-btn" class="btn">Undo</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Golf</h2>
+    <button class="btn primary wide" id="menu-new">New game</button>
+    <details open>
+      <summary>How to play</summary>
+      <ul>
+        <li>Clear the seven columns by moving their bottom cards onto the pile.</li>
+        <li>A card can go on the pile if it's <b>one higher or one lower</b> than the top card, whatever the suit. Kings and Aces don't wrap round.</li>
+        <li>Tap a card to play it (or drag it to the pile). Tap the deck when you're stuck to turn over a new pile card.</li>
+        <li>Like real golf, a <b>low score</b> wins: it's the cards left on the table. Clear them all and every unused deck card counts as a stroke under.</li>
+      </ul>
+    </details>
+    <dl id="record" class="stats-list record"></dl>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <dialog id="end">
+    <div id="end-banner" class="banner"></div>
+    <dl id="end-stats" class="stats-list"></dl>
+    <button class="btn primary wide" id="again-btn">New game</button>
+    <button class="btn wide" id="end-undo">Undo last move</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
