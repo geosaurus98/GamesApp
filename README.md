@@ -26,6 +26,13 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
   Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
   for the selected row, column and number, mistake checking you can turn
   off, hints, undo and best times.
+- **Connect Four**: play the computer (Easy, Medium or Hard; it looks up
+  to 8 moves ahead) or a friend on the same phone. Falling-disc animation,
+  the winning four light up, undo, a running scoreboard and players take
+  turns going first.
+- **Snake**: swipe to steer, eat apples to grow and speed up. Walls-on or
+  no-walls mode, tap to pause, keeps your game if you switch apps, and best
+  scores per mode.
 - **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
   score, and arrow keys on a computer.
 - **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a

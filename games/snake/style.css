@@ -1,0 +1,87 @@
+.scores {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 12px 4px;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.score-box span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 700;
+}
+.score-box b { font-size: 24px; font-variant-numeric: tabular-nums; }
+.score-box.bump b { animation: bump 0.25s ease-out; }
+@keyframes bump { 50% { transform: scale(1.3); color: var(--good); } }
+.mode-label { font-size: 13px; font-weight: 700; color: var(--muted); }
+
+.play {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 10px 14px;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.stage {
+  --size: min(calc(100vw - 20px), calc(100dvh - 250px), 560px);
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+}
+canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+.stage.shake { animation: shake 0.4s; }
+@keyframes shake {
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+.overlay[hidden] { display: none; }
+.overlay-card {
+  pointer-events: auto;
+  min-width: 70%;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.overlay-title { font-size: 28px; font-weight: 900; }
+.overlay-text { margin: 6px 0 4px; color: var(--muted); white-space: pre-line; }
+.overlay-card .btn { width: 100%; margin-top: 12px; }
+
+.hint { margin: 0; color: var(--muted); font-size: 14px; }

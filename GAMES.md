@@ -74,7 +74,7 @@ of these.
 | Game | How it plays | Build | Status |
 |---|---|---|---|
 | **Tic-Tac-Toe** | Including an "Ultimate" 9-board version. | 🟢 | 💡 |
-| **Connect Four** | Drop discs; four in a row wins. Computer opponent with difficulty levels. | 🟢 | 💡 |
+| **Connect Four** | Drop discs; four in a row wins. Computer opponent with difficulty levels. | 🟢 | ✅ |
 | **Dots and Boxes** | Take turns drawing lines; complete a box to score and go again. | 🟢 | 💡 |
 | **Checkers** | Forced captures, kings, simple computer opponent. | 🟡 | 💡 |
 | **Reversi (Othello)** | Flip your opponent's discs by surrounding them. | 🟡 | 💡 |
@@ -100,7 +100,7 @@ tilt.
 
 | Game | How it plays | Build | Status |
 |---|---|---|---|
-| **Snake** | Swipe to steer; eat, grow, don't bite yourself. | 🟢 | 💡 |
+| **Snake** | Swipe to steer; eat, grow, don't bite yourself. | 🟢 | ✅ |
 | **Flappy-style** | Tap to flap through gaps. Banana-themed, obviously. | 🟢 | 💡 |
 | **Breakout** | Drag the paddle; bounce the ball to smash bricks. Power-ups. | 🟡 | 💡 |
 | **Falling Blocks** | Tetris-style line clearing with swipe and tap controls. | 🟡 | 💡 |
@@ -149,8 +149,8 @@ Needs a small server or a peer-to-peer connection, so save for later.
 4. ~~**Spelling Hive**~~ ✅: reuses the dictionary again.
 5. ~~**Solitaire (Klondike)**~~ ✅: builds the shared card deck for every other card game.
 6. ~~**Sudoku**~~ ✅: unlimited generated puzzles.
-7. **Connect Four**: first game with a computer opponent.
-8. **Snake**: first arcade game; sets up the canvas game loop.
+7. ~~**Connect Four**~~ ✅: first game with a computer opponent.
+8. ~~**Snake**~~ ✅: first arcade game; sets up the canvas game loop.
 
 ## App-wide ideas
 

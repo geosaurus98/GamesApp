@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Connect Four</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <h1>Connect Four</h1>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <section class="scores">
+    <div class="player p1"><span class="dot"></span><span id="name1">You</span><b id="score1">0</b></div>
+    <div class="player draws"><span>Draws</span><b id="draws">0</b></div>
+    <div class="player p2"><b id="score2">0</b><span id="name2">Computer</span><span class="dot"></span></div>
+  </section>
+
+  <div id="status" class="status" aria-live="polite"></div>
+
+  <main class="wrap">
+    <div id="board" class="board" role="grid" aria-label="Board"></div>
+  </main>
+
+  <footer class="actions">
+    <button id="undo-btn" class="btn">Undo</button>
+    <button id="new-btn" class="btn primary">New game</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Connect Four</h2>
+    <button class="btn primary wide" data-mode="easy">Play the computer: Easy</button>
+    <button class="btn primary wide" data-mode="medium">Play the computer: Medium</button>
+    <button class="btn primary wide" data-mode="hard">Play the computer: Hard</button>
+    <button class="btn primary wide" data-mode="two">2 players on this phone</button>
+    <button class="btn wide" id="reset-scores">Reset scores</button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Take turns dropping discs into the columns. Tap a column to drop yours.</li>
+        <li>Get four of your discs in a row (across, up and down, or diagonally) to win.</li>
+        <li>Players take turns going first, game by game.</li>
+      </ul>
+    </details>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

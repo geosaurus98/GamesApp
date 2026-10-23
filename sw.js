@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v5';
+const VERSION = 'v6';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -51,6 +51,16 @@ const ASSETS = [
   './games/sudoku/style.css',
   './games/sudoku/app.js',
   './games/sudoku/logic.js',
+  './games/connect-four/',
+  './games/connect-four/index.html',
+  './games/connect-four/style.css',
+  './games/connect-four/app.js',
+  './games/connect-four/logic.js',
+  './games/snake/',
+  './games/snake/index.html',
+  './games/snake/style.css',
+  './games/snake/app.js',
+  './games/snake/logic.js',
 ];
 
 self.addEventListener('install', (event) => {

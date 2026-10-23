@@ -61,6 +61,18 @@
       <span class="desc">Fill the grid with 1 to 9. Four levels, endless puzzles.</span>
       <span class="best" id="best-sudoku"></span>
     </a>
+    <a class="card" href="games/connect-four/">
+      <span class="emoji">🔴</span>
+      <span class="name">Connect Four</span>
+      <span class="desc">Four in a row beats the computer, or a friend.</span>
+      <span class="best" id="best-connect4"></span>
+    </a>
+    <a class="card" href="games/snake/">
+      <span class="emoji">🐍</span>
+      <span class="name">Snake</span>
+      <span class="desc">Swipe to steer, eat apples, don't bite yourself.</span>
+      <span class="best" id="best-snake"></span>
+    </a>
     <div class="card soon" aria-disabled="true">
       <span class="emoji">🎲</span>
       <span class="name">More soon</span>
@@ -85,6 +97,13 @@
     show('best-solitaire', sol?.won && `Won ${sol.won} of ${sol.played}`);
     const sudoku = times(read('sudoku.best.v1', {}), [['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard'], ['expert', 'Expert']]);
     show('best-sudoku', sudoku && `Best: ${sudoku}`);
+    const c4 = read('connect4.save.v1', null);
+    if (c4?.scores && c4.mode !== 'two' && (c4.scores[1] || c4.scores[2])) {
+      show('best-connect4', `You ${c4.scores[1]} – ${c4.scores[2]} Computer`);
+    }
+    const snake = read('snake.best.v1', {});
+    const snakeBest = Math.max(snake.walls ?? 0, snake.wrap ?? 0);
+    show('best-snake', snakeBest && `Best: ${snakeBest}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);

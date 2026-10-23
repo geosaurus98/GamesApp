@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Snake</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <h1>Snake</h1>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <div class="scores">
+    <div class="score-box"><span>Score</span><b id="score">0</b></div>
+    <div id="mode-label" class="mode-label">Walls on</div>
+    <div class="score-box"><span>Best</span><b id="best">0</b></div>
+  </div>
+
+  <main id="play" class="play">
+    <div class="stage">
+      <canvas id="canvas" aria-label="Snake game"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <div id="overlay-title" class="overlay-title">Snake</div>
+          <div id="overlay-text" class="overlay-text">Swipe in any direction to start</div>
+          <button id="overlay-btn" class="btn primary" hidden>Play again</button>
+        </div>
+      </div>
+    </div>
+    <p class="hint">Swipe anywhere to steer · tap to pause</p>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Snake</h2>
+    <button class="btn primary wide" data-walls="1">New game: walls on <small>Hit the edge and it's over</small></button>
+    <button class="btn primary wide" data-walls="0">New game: no walls <small>Go off one edge, come back on the other</small></button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Swipe up, down, left or right to steer (arrow keys work too).</li>
+        <li>Eat the apples to grow. Every apple makes you a little faster.</li>
+        <li>Don't run into yourself, or into the walls if they're on.</li>
+        <li>Tap the board to pause.</li>
+      </ul>
+    </details>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
