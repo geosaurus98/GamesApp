@@ -61,6 +61,12 @@
       <span class="desc">Solitaire where every card is face up. Almost always winnable.</span>
       <span class="best" id="best-freecell"></span>
     </a>
+    <a class="card" href="games/spider/">
+      <span class="emoji">🕷️</span>
+      <span class="name">Spider</span>
+      <span class="desc">Two decks, ten columns. Build King to Ace in one suit.</span>
+      <span class="best" id="best-spider"></span>
+    </a>
     <a class="card" href="games/sudoku/">
       <span class="emoji">🔢</span>
       <span class="name">Sudoku</span>
@@ -112,6 +118,9 @@
     show('best-snake', snakeBest && `Best: ${snakeBest}`);
     const fc = read('freecell.record.v1', null);
     show('best-freecell', fc?.won && `Won ${fc.won} of ${fc.played}`);
+    const spider = read('spider.record.v1', {});
+    const spiderWon = [1, 2, 4].reduce((n, k) => n + (spider[`s${k}`]?.won ?? 0), 0);
+    show('best-spider', spiderWon && `Won ${spiderWon}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);

@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v7';
+const VERSION = 'v8';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
@@ -67,6 +67,10 @@ const ASSETS = [
   './games/freecell/index.html',
   './games/freecell/app.js',
   './games/freecell/logic.js',
+  './games/spider/',
+  './games/spider/index.html',
+  './games/spider/app.js',
+  './games/spider/logic.js',
 ];
 
 self.addEventListener('install', (event) => {

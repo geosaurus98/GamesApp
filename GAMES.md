@@ -58,7 +58,7 @@ of these.
 | Game | How it plays | Build | Status |
 |---|---|---|---|
 | **Solitaire (Klondike)** | The classic. Draw 1 or draw 3, tap-to-auto-move, undo. | 🟡 | ✅ |
-| **Spider Solitaire** | 1, 2 or 4 suits. Build full suit runs from King to Ace. | 🟡 | 💡 |
+| **Spider Solitaire** | 1, 2 or 4 suits. Build full suit runs from King to Ace. | 🟡 | ✅ |
 | **FreeCell** | Almost every deal is solvable; numbered deals so you can retry one. | 🟡 | ✅ |
 | **Pyramid** | Remove pairs that add up to 13. | 🟢 | 💡 |
 | **Golf Solitaire** | Clear the tableau by playing one higher or lower than the top card. | 🟢 | 💡 |

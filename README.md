@@ -25,6 +25,9 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
 - **FreeCell**: all cards face up, four free cells, multi-card moves when
   there's room, safe cards go home by themselves. Uses the classic deal
   numbers, so you can replay or share a deal (#1 is the famous one).
+- **Spider**: two decks in ten columns with 1, 2 or 4 suits. Same-suit runs
+  move together, finished King-to-Ace runs clear away, five deals from the
+  stock, hints, undo and win records per suit count.
 - **Sudoku**: endless generated puzzles with exactly one solution, in
   Easy, Medium, Hard and Expert. Notes that tidy themselves up, highlights
   for the selected row, column and number, mistake checking you can turn

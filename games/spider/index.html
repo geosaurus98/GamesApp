@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5c518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="icon" href="../../icons/icon-192.png">
+  <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+  <title>Spider</title>
+  <link rel="stylesheet" href="../../shared/game.css">
+  <link rel="stylesheet" href="../../shared/cards.css">
+  <style>
+    .done-pile { font-size: calc(var(--cw) * 0.42); font-weight: 800; color: #fff; border-style: solid; background: rgba(255, 255, 255, 0.12); }
+    .done-pile.red { color: #ffb3b3; }
+    .deals-left { position: absolute; color: rgba(255, 255, 255, 0.8); font-size: 13px; font-weight: 700; text-align: right; line-height: 1.2; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="icon-btn" href="../../" aria-label="Back to games">&#8249;</a>
+    <div class="stats">
+      <span id="suits-label">1 suit</span>
+      <span id="timer">0:00</span>
+      <span id="moves">0 moves</span>
+    </div>
+    <button id="menu-btn" class="icon-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <main id="table" class="table">
+    <div id="board" class="board"></div>
+  </main>
+
+  <footer class="actions">
+    <button id="new-btn" class="btn">New</button>
+    <button id="hint-btn" class="btn">Hint</button>
+    <button id="undo-btn" class="btn">Undo</button>
+    <button id="deal-btn" class="btn primary">Deal</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <dialog id="menu">
+    <h2>Spider</h2>
+    <button class="btn primary wide" data-suits="1">New game: 1 suit <small>Relaxing</small></button>
+    <button class="btn primary wide" data-suits="2">New game: 2 suits <small>A real challenge</small></button>
+    <button class="btn primary wide" data-suits="4">New game: 4 suits <small>Very hard</small></button>
+    <details>
+      <summary>How to play</summary>
+      <ul>
+        <li>Build a run from King down to Ace in one suit. Finished runs leave the table. Clear all eight to win.</li>
+        <li>Any card can go on a card one higher, whatever the suit, but only runs of the <b>same suit</b> can be moved together.</li>
+        <li><b>Tap</b> a card to move it (and the cards on it) to the best spot, or <b>drag</b> it.</li>
+        <li>Stuck? <b>Deal</b> puts one new card on every column. You can't deal while a column is empty.</li>
+      </ul>
+    </details>
+    <dl id="record" class="stats-list record"></dl>
+    <button class="btn wide" data-close>Close</button>
+  </dialog>
+
+  <dialog id="win">
+    <div class="banner">🕷️ You won! 🕷️</div>
+    <dl id="win-stats" class="stats-list"></dl>
+    <button class="btn primary wide" id="again-btn">Play again</button>
+    <a class="btn wide" href="../../">Back to games</a>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
