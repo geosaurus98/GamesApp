@@ -77,11 +77,23 @@ test('golf: seven columns of five, one card on the pile', () => {
   assert.equal(s.stock.length, 16);
 });
 
-test('golf: play one higher or lower, no wrapping', () => {
+test('golf: play one higher or lower; Kings and Aces connect only with wrap', () => {
   assert.equal(G.fits(card(5), card(6)), true);
   assert.equal(G.fits(card(7), card(6)), true);
   assert.equal(G.fits(card(8), card(6)), false);
   assert.equal(G.fits(card(1), card(13)), false);
+  assert.equal(G.fits(card(1), card(13), true), true);
+  assert.equal(G.fits(card(13), card(1), true), true);
+  assert.equal(G.fits(card(12), card(1), true), false);
+  const w = G.deal();
+  assert.equal(w.wrap, true); // on by default
+  w.pile = [card(13)];
+  w.columns[0] = [card(1, 2)];
+  assert.equal(G.play(w, 0), true);
+  w.wrap = false;
+  w.pile = [card(13)];
+  w.columns[1] = [card(1, 3)];
+  assert.equal(G.play(w, 1), false);
   const s = G.deal();
   s.pile = [card(6)];
   s.columns[0] = [card(9), card(5)];

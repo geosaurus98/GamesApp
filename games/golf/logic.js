@@ -2,7 +2,8 @@
 // cards onto the pile, one rank higher or lower. Like golf, low scores win.
 // Cards are { id, suit (0-3: ♠♥♦♣), rank (1-13) }.
 
-export function deal(rng = Math.random) {
+// `wrap` lets Kings and Aces connect ("turning the corner").
+export function deal(rng = Math.random, wrap = true) {
   const deck = [];
   for (let suit = 0; suit < 4; suit++) {
     for (let rank = 1; rank <= 13; rank++) deck.push({ id: suit * 13 + rank - 1, suit, rank });
@@ -13,16 +14,19 @@ export function deal(rng = Math.random) {
   }
   const columns = Array.from({ length: 7 }, () => deck.splice(0, 5));
   const pile = [deck.pop()];
-  return { columns, stock: deck, pile, moves: 0, streak: 0, bestStreak: 0, elapsedMs: 0, status: 'playing' };
+  return { columns, stock: deck, pile, wrap, moves: 0, streak: 0, bestStreak: 0, elapsedMs: 0, status: 'playing' };
 }
 
-// One rank up or down. Kings and Aces don't wrap round.
-export const fits = (card, onto) => Math.abs(card.rank - onto.rank) === 1;
+// One rank up or down. With `wrap`, Kings and Aces count as neighbours too.
+export function fits(card, onto, wrap = false) {
+  const diff = Math.abs(card.rank - onto.rank);
+  return diff === 1 || (wrap && diff === 12);
+}
 
 export function canPlay(state, col) {
   const column = state.columns[col];
   const card = column?.[column.length - 1];
-  return !!card && fits(card, state.pile[state.pile.length - 1]);
+  return !!card && fits(card, state.pile[state.pile.length - 1], !!state.wrap);
 }
 
 export function play(state, col) {

@@ -32,7 +32,7 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
   and the deck, three passes through the deck, tap or drag pairs, hints
   and undo.
 - **Golf**: play column cards one higher or lower onto the pile; low score
-  wins. Streak counter, hints that light up playable cards, undo, best and
+  wins. Kings and Aces connect by default (switch off for traditional rules). Streak counter, hints that light up playable cards, undo, best and
   average scores.
 - **Blackjack**: you against the dealer with pretend chips: six-deck shoe,
   dealer stands on soft 17, blackjack pays 3 to 2, double, split. A

@@ -1,6 +1,6 @@
 // Offline support: serve from cache, refresh the cache in the background.
 // Bump VERSION when the file list changes.
-const VERSION = 'v13';
+const VERSION = 'v14';
 const CACHE = `gamesapp-${VERSION}`;
 const ASSETS = [
   './',
