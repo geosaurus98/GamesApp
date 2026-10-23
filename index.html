@@ -85,6 +85,12 @@
       <span class="desc">Four in a row beats the computer, or a friend.</span>
       <span class="best" id="best-connect4"></span>
     </a>
+    <a class="card" href="games/blocks/">
+      <span class="emoji">🧱</span>
+      <span class="name">Falling Blocks</span>
+      <span class="desc">Fit the falling pieces together and clear rows.</span>
+      <span class="best" id="best-blocks"></span>
+    </a>
     <a class="card" href="games/snake/">
       <span class="emoji">🐍</span>
       <span class="name">Snake</span>
@@ -127,6 +133,8 @@
     const spider = read('spider.record.v1', {});
     const spiderWon = [1, 2, 4].reduce((n, k) => n + (spider[`s${k}`]?.won ?? 0), 0);
     show('best-spider', spiderWon && `Won ${spiderWon}`);
+    const blocks = read('blocks.best.v1', 0);
+    show('best-blocks', blocks && `Best: ${blocks.toLocaleString()}`);
 
     const now = new Date();
     const today = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);

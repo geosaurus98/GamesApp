@@ -43,6 +43,10 @@ See [GAMES.md](GAMES.md) for the list of game ideas and the planned build order.
   another. A daily ladder plus practice (1,200 puzzles with 4- and 5-letter
   words), par scores, hints that suggest everyday words, streaks and a
   shareable result.
+- **Falling Blocks**: a Tetris-style game. Tap to rotate, drag to move,
+  flick down to drop and up to hold, or use the buttons (which repeat when
+  held). Ghost piece, hold, three-piece preview, levels that speed up,
+  pause and resume, and best score.
 - **2048**: swipe to slide and merge tiles. Smooth animations, undo, best
   score, and arrow keys on a computer.
 - **Minesweeper**: tap to dig, long-press (or Flag mode) to flag, tap a

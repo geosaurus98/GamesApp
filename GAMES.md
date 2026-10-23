@@ -103,7 +103,7 @@ tilt.
 | **Snake** | Swipe to steer; eat, grow, don't bite yourself. | 🟢 | ✅ |
 | **Flappy-style** | Tap to flap through gaps. Banana-themed, obviously. | 🟢 | 💡 |
 | **Breakout** | Drag the paddle; bounce the ball to smash bricks. Power-ups. | 🟡 | 💡 |
-| **Falling Blocks** | Tetris-style line clearing with swipe and tap controls. | 🟡 | 💡 |
+| **Falling Blocks** | Tetris-style line clearing with swipe and tap controls. | 🟡 | ✅ |
 | **Endless Runner** | Tap to jump, swipe to duck. Distance is your score. | 🟡 | 💡 |
 | **Asteroids** | Thumb joystick and fire button; split rocks into smaller rocks. | 🟡 | 💡 |
 | **Fruit Slice** | Swipe to slice flying fruit; avoid the bombs. | 🟡 | 💡 |
