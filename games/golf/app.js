@@ -6,6 +6,7 @@ import {
 
 const SAVE_KEY = 'golf.save.v1';
 const RECORD_KEY = 'golf.record.v1';
+const SETTINGS_KEY = 'golf.settings.v1';
 
 const $ = (id) => document.getElementById(id);
 const tableEl = $('table');
@@ -13,6 +14,7 @@ const board = $('board');
 
 let state = null;
 let history = [];
+const settings = { wrap: true, ...load(SETTINGS_KEY, {}) };
 
 const clone = (s) => JSON.parse(JSON.stringify(s));
 const save = () => store(SAVE_KEY, { state, history: history.slice(-60) });
@@ -134,7 +136,7 @@ function tapCard(id) {
   const col = columnOf(id);
   if (col < 0 || !canPlay(state, col)) {
     table.nope(id);
-    if (col >= 0) toast('Needs to be one higher or lower than the pile', 1300);
+    if (col >= 0) toast(state.wrap ? 'Needs to be one higher or lower (K and A connect)' : 'Needs to be one higher or lower than the pile', 1400);
     return;
   }
   act(() => play(state, col));
@@ -166,7 +168,7 @@ function showEnd() {
 }
 
 function startGame() {
-  state = deal();
+  state = deal(Math.random, settings.wrap);
   history = [];
   showMoves = false;
   save();
@@ -199,12 +201,22 @@ $('new-btn').addEventListener('click', () => {
 });
 $('menu-btn').addEventListener('click', () => {
   const r = record();
+  $('wrap-toggle').checked = settings.wrap;
   fillStats($('record'), r.played ? [
     ['Rounds played', r.played],
     ['Cleared', r.won],
     ...(r.best != null ? [['Best score', r.best]] : []),
   ] : []);
   $('menu').showModal();
+});
+$('wrap-toggle').addEventListener('change', (e) => {
+  settings.wrap = e.target.checked;
+  store(SETTINGS_KEY, settings);
+  // Applies straight away, including to the game in progress.
+  state.wrap = settings.wrap;
+  save();
+  render();
+  toast(settings.wrap ? 'Kings and Aces now connect' : 'Kings and Aces no longer connect', 1500);
 });
 $('menu-new').addEventListener('click', () => {
   $('menu').close();
@@ -241,6 +253,8 @@ const saved = load(SAVE_KEY, null);
 if (saved?.state?.columns && saved.state.status === 'playing') {
   state = saved.state;
   history = saved.history ?? [];
+  // Games saved before the setting existed follow the current setting.
+  if (state.wrap === undefined) state.wrap = settings.wrap;
   render();
 } else {
   startGame();

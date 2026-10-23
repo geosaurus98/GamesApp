@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../../shared/game.css">
   <link rel="stylesheet" href="../../shared/cards.css">
   <style>
+    .toggle { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+    .toggle input { width: 22px; height: 22px; flex-shrink: 0; accent-color: var(--accent-strong); }
     .stock-label { position: absolute; color: rgba(255, 255, 255, 0.8); font-size: 13px; font-weight: 700; text-align: center; }
   </style>
 </head>
@@ -41,11 +43,15 @@
   <dialog id="menu">
     <h2>Golf</h2>
     <button class="btn primary wide" id="menu-new">New game</button>
+    <label class="toggle">
+      <input type="checkbox" id="wrap-toggle" checked>
+      Kings and Aces connect (play A on K, or K on A)
+    </label>
     <details open>
       <summary>How to play</summary>
       <ul>
         <li>Clear the seven columns by moving their bottom cards onto the pile.</li>
-        <li>A card can go on the pile if it's <b>one higher or one lower</b> than the top card, whatever the suit. Kings and Aces don't wrap round.</li>
+        <li>A card can go on the pile if it's <b>one higher or one lower</b> than the top card, whatever the suit. By default Kings and Aces connect too; you can switch that off in this menu for the traditional rules.</li>
         <li>Tap a card to play it (or drag it to the pile). Tap the deck when you're stuck to turn over a new pile card.</li>
         <li>Like real golf, a <b>low score</b> wins: it's the cards left on the table. Clear them all and every unused deck card counts as a stroke under.</li>
       </ul>
